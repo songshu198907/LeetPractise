@@ -108,9 +108,17 @@ public class CodeTest16_30 {
     @Test
     public void testStrSTR(){
         ImplementstrStr_28 str = new ImplementstrStr_28();
-        System.out.println(str.strStr("mississippi",
-                "issipi"));
-        System.out.println(str.strStrErfenfa("mississippi",
-                "issippi"));
+//        System.out.println(str.strStr("mississippi",
+//                "issip"));
+        System.out.println(str.strStrSunny("mississippi",
+                "pi"));
+    }
+
+    @Test
+    public void testDivide() {
+        DivideTwoIntegers_29 devide = new DivideTwoIntegers_29();
+        int result = devide.divide(-2147483648,
+                2);
+        System.out.println(result);
     }
 }

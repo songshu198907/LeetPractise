@@ -1,13 +1,13 @@
 package algorithm;
 
-import org.apache.hadoop.yarn.webapp.hamlet.HamletSpec;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by songheng on 3/22/16.
  */
 public class ImplementstrStr_28 {
     public int strStr(String haystack, String needle) {
-
         char[] needles = needle.toCharArray();
         int head = -1;
 
@@ -17,7 +17,7 @@ public class ImplementstrStr_28 {
                 ) {
             return head;
         }
-        if(needle.length() ==0){
+        if (needle.length() == 0) {
             return 0;
         }
 
@@ -25,7 +25,7 @@ public class ImplementstrStr_28 {
             if (haystack.charAt(i) == needles[0]) {
                 head = i;
                 int step = 1;
-                while (step < needles.length && i+step< haystack.length()) {
+                while (step < needles.length && i + step < haystack.length()) {
                     if (haystack.charAt(i + step) != needles[step]) {
                         head = -1;
                         step = 1;
@@ -37,8 +37,8 @@ public class ImplementstrStr_28 {
                 }
                 if (step == needles.length) {
                     break;
-                }else {
-                    head = -1 ;
+                } else {
+                    head = -1;
                     step = 1;
 
                 }
@@ -47,86 +47,95 @@ public class ImplementstrStr_28 {
         }
         return head;
     }
-    public int strStrErfenfa(String haystack, String needle) {
-        if(haystack == null || haystack.length()<needle.length()){
-            return  -1;
-        }
-        if(needle.length() == 0) {
-            return  0;
-        }
-        return  help(haystack,needle);
 
-    };
-    public int help( String origin , String seed ){
-        if(origin.length() < seed.length()) {
-            return -1 ;
+    public int strStrBMP(String haystack, String needle) {
+        if (needle.length() == 0) {
+            return 0;
+
         }
-        else {
-
-            int left = 0 ;
-            int right = origin.length();
-            int center = (left + right ) / 2 ;
-            int leftRes = help(origin.substring(0,center),seed);
-            int rightRes = help(origin.substring(center+1,right),seed);
-            int mergeRes = findMerge(origin,center,seed);
-            int min  = origin.length();
-
-            if(leftRes >0 && leftRes < min){
-                min = leftRes;
-            } if(rightRes >0 && left < rightRes){
-                min = rightRes;
-            } if(mergeRes >0 && mergeRes < min){
-                min = mergeRes;
+        if (haystack == null || haystack.length() < needle.length()) {
+            return -1;
+        }
+        int[] next = new int[needle.length()];
+        next[0] = -1;
+        int k = -1, j = 0;
+        while (j < needle.length() - 1) {
+            if (k == -1 || needle.charAt(k) == needle.charAt(j)) {
+                ++k;
+                ++j;
+                next[j] = k;
+                if (needle.charAt(k) != needle.charAt(j)) {
+                    next[j] = k;
+                } else {
+                    next[j] = next[k];
+                }
+            } else {
+                k = next[k];
             }
-            if(min == origin.length()){
-                min = -1;
+        }
+        int i = 0;
+        j = 0;
+        while (i < haystack.length() && j < needle.length()) {
+            if (j == -1 || needle.charAt(j) == haystack.charAt(i)) {
+                i++;
+                j++;
+            } else {
+                j = next[j];
             }
-            return  min;
 
+        }
+        if (j == needle.length()) {
+            return i - j;
+        } else {
+            return -1;
         }
 
     }
-    private int findMerge(String origin , int center ,String goal){
-            if(origin.length() < goal.length()){
-                return -1;
-            }
-            char before = origin.charAt(center);
-            char after = origin.charAt(center+1);
-            int head = -1;
-            for(int i = 0 ; i < goal.length()-1 ; i++){
-                if(goal.charAt(i) == before && goal.charAt(i+1)== after){
-                    int step = 1;
-                    while(i-step >= 0 && center - step >=0){
-                        if(origin.charAt(center - step) == goal.charAt(i-step)){
-                            step++;
-                        }
-                        else {
-                            break;
-                        }
-                    }
-                    if ( --step == i ){
-                        int step2 = 1;
-                        int base = i+1;
-                        while(base + step2 <goal.length()&& (center +1 +step2) < origin.length()){
-                            if(origin.charAt(center+1+step2) == goal.charAt(base+step2)){
-                                step2++;
-                            }
-                            else {
-                                break;
-                            }
-                        }
-                        if(--step2 + step == goal.length()){
-                           head = center - step;
-                        }
-                    }
 
 
+    public int strStrSunny(String haystack, String needle) {
+        int i = 0, j = 0;
+        if (needle.length() == 0) {
+            return 0;
+
+        }
+        Map<Character, Integer> map = new HashMap<>();
+        for (int c = 0; c < needle.length(); c++) {
+            map.put(needle.charAt(c), c);
+
+        }
+        if (haystack == null || haystack.length() < needle.length()) {
+            return -1;
+        }
+        int length = needle.length();
+        int start = 0;
+        while (i < haystack.length() && j < needle.length()) {
+            if (haystack.charAt(i) == needle.charAt(j)) {
+                ++i;
+                ++j;
+            } else {
+                if (start + length >= haystack.length()) {
+                    return -1;
+                } else {
+                    if (map.containsKey(haystack.charAt(start + length))) {
+                        start += length - map.get(haystack.charAt(start + length));
+                        i = start;
+                        j = 0;
+                    } else {
+                        start = start + length + 1;
+                        i = start;
+                        j = 0;
+                    }
                 }
             }
-        return head;
+        }
+        if (j == needle.length()) {
+            return i - j;
+        } else {
+            return -1;
+        }
 
+    }
 
-
-    };
 
 }
