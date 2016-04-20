@@ -60,4 +60,32 @@ public class CodeTest31_45 {
         CombinationSum_39 sum = new CombinationSum_39();
         sum.combinationSum(new int[]{20, 20, 41}, 61);
     }
+    @Test
+    public void test40(){
+        CombinationSumII_40 sum = new CombinationSumII_40();
+        sum.combinationSum2(new int[]{
+                1,1
+        } , 2);
+    }
+    @Test
+    public void test42(){
+        TrappingRainWater_42 trap = new TrappingRainWater_42();
+        trap.trap(new int[]{0,1,0,2,1,0,1,3,2,1,2,1});
+        trap.trap(new int[]{4,2,0,3,2,5});
+        trap.trap(new int[]{9,6,8,8,5,6,3});
+    }
+    @Test
+    public void test44(){
+        WildcardMatching_44 wild = new WildcardMatching_44();
+        wild.isMatch("abc","b*");
+    }
+    @Test
+    public void test45(){
+        JumpGameII_45 jump = new JumpGameII_45();
+        System.out.println(jump.jump(new int[]{
+                2,3,1,1,4
+        }));
+
+        System.out.println(jump.jump2(new int[]{2,3,1,1,4}));
+    }
 }
