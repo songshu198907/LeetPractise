@@ -15,8 +15,7 @@ public class WordSearch_79 {
         char start = word.charAt(0);
         int[] head = findStart(0, 0, board, start);
         while (head[0] >= 0 && head[1] >= 0) {
-            int[][] support = new int[rowLen][colLen];
-            support[head[0]][head[1]] = 1;
+            int[] support = new int[rowLen * colLen];
             if (search(head ,board, word, 0, support)) {
                 return true;
             }
@@ -27,16 +26,48 @@ public class WordSearch_79 {
         return false;
     }
 
-    private boolean search(int[] start ,char[][] board, String word, int len, int[][] support) {
+    private boolean search(int[] start, char[][] board, String word, int len, int[] support) {
         if(len == word.length()){
             return true;
         }
+
+        int rowLen = board.length;
+        int colLen = board[0].length;
         int row = start[0];
         int col = start[1];
-        for( int i = 0; i < word.length(); i++){
-
+        if (board[row][col] != word.charAt(len)) {
+            return false;
         }
-        return  true;
+        support[row * colLen + col] = 1;
+        boolean result = false;
+        if (col >= 1 && support[row * colLen + (col - 1)] == 0) {
+            result = result || search(new int[]{row, col - 1}, board, word, len + 1, support);
+        }
+        if (result) {
+            return true;
+        }
+        if (col + 1 < colLen && support[row * colLen + (col + 1)] == 0) {
+            result = result || search(new int[]{row, col + 1}, board, word, len + 1, support);
+        }
+        if (result) {
+            return true;
+        }
+        if (row >= 1 && support[(row - 1) * colLen + col] == 0) {
+            result = result || search(new int[]{row - 1, col}, board, word, len + 1, support);
+        }
+        if (result) {
+            return true;
+        }
+        if (row + 1 < rowLen && support[(row + 1) * colLen + col] == 0) {
+            result = result || search(new int[]{row + 1, col}, board, word, len + 1, support);
+        }
+        if (result) {
+            return true;
+        }
+        support[row * colLen + col] = 0;
+
+
+        return false;
     }
 
     private int[] findStart(int row, int col, char[][] board, char target) {

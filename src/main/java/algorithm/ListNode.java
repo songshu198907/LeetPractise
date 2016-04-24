@@ -4,10 +4,10 @@ package algorithm;
  * Created by songheng on 3/21/16.
  */
 public class ListNode {
-    int val;
-    ListNode next;
+    public int val;
+    public ListNode next;
 
-    ListNode(int x) {
+    public ListNode(int x) {
         val = x;
     }
     public  void print(){
