@@ -10,22 +10,24 @@ import java.util.Arrays;
  */
 public class codeTest_76_90 {
     @Test
-    public void test76(){
+    public void test76() {
         Minimum_Window_Substring_76 min = new Minimum_Window_Substring_76();
-        System.out.println(min.minWindow("ab","b"));
-        System.out.println(min.minWindow("bba","ab"));
+        System.out.println(min.minWindow("ab", "b"));
+        System.out.println(min.minWindow("bba", "ab"));
     }
+
     @Test
-    public void test77(){
+    public void test77() {
         Combinations_77 comb = new Combinations_77();
-        comb.combine(4,2).stream().forEach(System.out::println);
-        comb.combine(1,1).stream().forEach(System.out::println);
+        comb.combine(4, 2).stream().forEach(System.out::println);
+        comb.combine(1, 1).stream().forEach(System.out::println);
     }
+
     @Test
-    public void test78(){
+    public void test78() {
         Subsets_78 subset = new Subsets_78();
         subset.subsets(new int[]{0}).stream().forEach(System.out::println);
-        subset.subsets(new int[]{1,2,3}).stream().forEach(System.out::println);
+        subset.subsets(new int[]{1, 2, 3}).stream().forEach(System.out::println);
     }
 
     @Test
@@ -94,5 +96,49 @@ public class codeTest_76_90 {
         remove.deleteDuplicates(NodeListBuilder.BuildList(new int[]{1, 1, 2, 3, 3})).print();
         remove.deleteDuplicates(NodeListBuilder.BuildList(new int[]{1})).print();
         remove.deleteDuplicates(NodeListBuilder.BuildList(new int[]{1, 2, 3})).print();
+    }
+    @Test
+    public void test84() {
+        LargestRectangleinHistogram_84 rectangle = new LargestRectangleinHistogram_84();
+        System.out.println(rectangle.largestRectangleArea(new int[]{3, 3, 2, 2}));
+    }
+
+    @Test
+    public void test85() {
+        MaximalRectangle_85 max = new MaximalRectangle_85();
+       int res ;
+        res = max.maximalRectangle(
+
+                stringArrtoCharArr(new String[]{
+                        "01000000000", "11111111111"
+                })
+        );
+        System.out.println(res);
+    }
+    @Test
+    public void test86(){
+        PartitionList_86 pati = new PartitionList_86();
+        pati.partition(NodeListBuilder.BuildList(new int[]{
+                1,4,3,2,5,2
+        }),3).print();
+    }
+    @Test
+    public void test87(){
+        ScrambleString_87 scramble = new ScrambleString_87();
+
+        System.out.println(scramble.isScramble("hobobyrqd",
+                "hbyorqdbo"));
+        System.out.println(scramble.isScramble("great",
+                "ragte"));
+    }
+    @Test
+    public void test89(){
+        GrayCode_89 gray = new GrayCode_89();
+        System.out.println(gray.grayCode(2));
+    }
+    @Test
+    public void test90(){
+        SubsetsII_90 subset = new SubsetsII_90();
+        System.out.println(subset.subsetsWithDup(new int[]{1, 2, 2}));
     }
 }
