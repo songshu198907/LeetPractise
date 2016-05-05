@@ -1,4 +1,6 @@
+import algorithm.NodeListBuilder;
 import algorithm.leet_91_105.DecodeWays_91;
+import algorithm.leet_91_105.ReverseLinkedListII_92;
 import org.junit.Test;
 
 /**
@@ -9,5 +11,10 @@ public class CodeTest_91_105 {
     public void test91() {
         DecodeWays_91 decode = new DecodeWays_91();
         System.out.println(decode.numDecodings("123545612"));
+    }
+    @Test
+    public void test92() {
+        ReverseLinkedListII_92 reverse = new ReverseLinkedListII_92();
+        reverse.reverseBetween(NodeListBuilder.BuildList(new int[]{3,5}),1,2).print();
     }
 }
