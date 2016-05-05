@@ -50,10 +50,18 @@ public class ReverseLinkedListII_92 {
             point2 = tmp;
             third = tmp.next;
             forth = third.next;
-            point1.next = third;
-            third.next = second;
-            point2.next = first;
-            first.next = forth;
+            if(third != first.next){
+                point1.next = third;
+                third.next = second;
+                point2.next = first;
+                first.next = forth;
+            } else {
+                point1.next = third;
+                third.next = first;
+                first.next = forth;
+            }
+
+
 
 
         }

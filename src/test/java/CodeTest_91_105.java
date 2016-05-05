@@ -15,6 +15,6 @@ public class CodeTest_91_105 {
     @Test
     public void test92() {
         ReverseLinkedListII_92 reverse = new ReverseLinkedListII_92();
-        reverse.reverseBetween(NodeListBuilder.BuildList(new int[]{3,5}),1,2).print();
+        reverse.reverseBetween(NodeListBuilder.BuildList(new int[]{1,2,3}),2,3).print();
     }
 }
