@@ -10,60 +10,56 @@ public class ReverseLinkedListII_92 {
         if (m == n) {
             return head;
         }
+
         int min = Math.min(m, n) - 1;
         int max = Math.max(m, n) - 1;
-        ListNode first, second, third, forth;
-        ListNode tmp = head;
-        ListNode point1, point2;
         int counter = 1;
+        ListNode hd, tail, pNext;
+        ListNode tmp = head;
         if (min == 0) {
-            while (counter < max) {
-                counter++;
-                tmp = tmp.next;
-            }
-            first = tmp.next;
-            second = first.next;
-            if(first != head.next)
-            {
-                first.next = head.next;
-                tmp.next = head;
-                head.next = second;
+            if (max == 1) {
+                hd = head.next.next;
+                tail = head.next;
+                head.next = hd;
+                tail.next = head;
+                head = tail;
             } else {
-                first.next= head;
-                head.next = second;
+                tail = head;
+                hd = head;
+                pNext = head.next;
+                while (counter <= max) {
+                    tmp = pNext;
+                    pNext = pNext.next;
+                    tmp.next = hd;
+                    hd = tmp;
+                    counter++;
+                }
+                tail.next = pNext;
+                head = hd;
             }
-            head = first;
         } else {
-
+            ListNode bp1;
             while (counter < min) {
-                counter++;
                 tmp = tmp.next;
+                counter++;
             }
-            first = tmp.next;
-            point1 = tmp;
-            second = first.next;
-
+            bp1 = tmp;
+            tmp = tmp.next;
+            tail = tmp;
+            hd = tmp;
+            pNext = tmp.next;
             while (counter < max) {
+                tmp = pNext;
+                if (pNext != null) {
+
+                    pNext = pNext.next;
+                }
+                tmp.next = hd;
+                hd = tmp;
                 counter++;
-                tmp = tmp.next;
             }
-            point2 = tmp;
-            third = tmp.next;
-            forth = third.next;
-            if(third != first.next){
-                point1.next = third;
-                third.next = second;
-                point2.next = first;
-                first.next = forth;
-            } else {
-                point1.next = third;
-                third.next = first;
-                first.next = forth;
-            }
-
-
-
-
+            bp1.next = hd;
+            tail.next = pNext;
         }
         return head;
     }
