@@ -1,4 +1,5 @@
 import algorithm.NodeListBuilder;
+import algorithm.TreeNode;
 import algorithm.leet_91_105.*;
 import org.junit.Test;
 
@@ -37,9 +38,53 @@ public class CodeTest_91_105 {
         UniqueBinarySearchTrees_96 unique = new UniqueBinarySearchTrees_96();
         System.out.println(unique.numTrees(1));
     }
+
     @Test
-    public void test97(){
+    public void test97() {
         InterleavingString_97 inteleave = new InterleavingString_97();
         System.out.println(inteleave.isInterleave("aaaa", "aaab", "aaaabaaa"));
+    }
+
+    @Test
+    public void test98() {
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(-1);
+        ValidateBinarySearchTree_98 valid = new ValidateBinarySearchTree_98();
+        System.out.println(valid.isValidBST(root));
+    }
+
+    @Test
+    public void test99() {
+        TreeNode root = new TreeNode(1);
+        root.right = new TreeNode(2);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(3);
+        root.left.right = new TreeNode(4);
+        root.right.right = new TreeNode(3);
+        root.right.left = new TreeNode(3);
+
+//        root.right.right = new TreeNode(1);
+        RecoverBinarySearchTree_99 recover = new RecoverBinarySearchTree_99();
+        recover.recoverTree(root);
+    }
+    @Test
+    public void test100(){
+        SymmetricTree_101 tree = new SymmetricTree_101();
+        TreeNode root = new TreeNode(1);
+//        root.right = new TreeNode(2);
+//        root.left = new TreeNode(2);
+//        root.left.left = new TreeNode(3);
+//        root.left.right = new TreeNode(3);
+//        root.right.right = new TreeNode(3);
+//        root.right.left = new TreeNode(4);
+        System.out.println(tree.isSymmetric(root));
+
+
+    }
+
+    @Test
+    public void test105(){
+        ConstructBinaryTreefromPreorderandInorderTraversal_105 construct = new ConstructBinaryTreefromPreorderandInorderTraversal_105();
+        construct.buildTree(new int[]{1,2,3},new int[]{3,2,1});
     }
 }
