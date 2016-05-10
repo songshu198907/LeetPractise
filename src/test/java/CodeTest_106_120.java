@@ -65,4 +65,14 @@ public class CodeTest_106_120 {
         PopulatingNextRightPointersinEachNode_116 pop = new PopulatingNextRightPointersinEachNode_116();
         pop.connect(new TreeLinkNode(0));
     }
+    @Test
+    public void test118(){
+        PascalsTriangle_118 pascal = new PascalsTriangle_118();
+        System.out.println(pascal.generate(4));
+    }
+    @Test
+    public void test119(){
+        PascalsTriangleII_119 pascal = new PascalsTriangleII_119() ;
+        System.out.println(pascal.getRow(3));
+    }
 }
