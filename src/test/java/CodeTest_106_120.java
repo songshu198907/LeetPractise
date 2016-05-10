@@ -1,9 +1,8 @@
 import algorithm.NodeListBuilder;
 import algorithm.TreeBuilder;
+import algorithm.TreeLinkNode;
 import algorithm.TreeNode;
-import algorithm.leet_106_120.BalancedBinaryTree_110;
-import algorithm.leet_106_120.ConstructBinaryTreefromInorderandPostorderTraversal_106;
-import algorithm.leet_106_120.ConvertSortedListtoBinarySearchTree_109;
+import algorithm.leet_106_120.*;
 import org.junit.Test;
 
 /**
@@ -33,7 +32,7 @@ public class CodeTest_106_120 {
 //        node.right.right = new TreeNode(3);
 //        System.out.println(tree.isBalanced(node));
         Object[] obj = new Object[]{
-                1,null,2,null,3
+                1, null, 2, null, 3
         };
 
         TreeNode root = TreeBuilder.build(obj);
@@ -42,4 +41,28 @@ public class CodeTest_106_120 {
 //        System.out.println("done");
     }
 
+    @Test
+    public void test112() {
+        PathSum_112 path = new PathSum_112();
+        System.out.println(path.hasPathSum(TreeBuilder.build(new Object[]{-2, null, -3}), -5));
+    }
+
+    @Test
+    public void test114() {
+        FlattenBinaryTreetoLinkedList_114 falt = new FlattenBinaryTreetoLinkedList_114();
+        TreeNode node = TreeBuilder.build(new Object[]{1, 2, 5, 3, 4, 6
+        });
+        falt.flatten(node);
+        node.print();
+
+    }
+    @Test
+    public  void test115(){
+
+    }
+    @Test
+    public void test116(){
+        PopulatingNextRightPointersinEachNode_116 pop = new PopulatingNextRightPointersinEachNode_116();
+        pop.connect(new TreeLinkNode(0));
+    }
 }
