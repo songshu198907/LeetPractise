@@ -5,6 +5,9 @@ import algorithm.TreeNode;
 import algorithm.leet_106_120.*;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by songheng on 5/9/16.
  */
@@ -74,5 +77,26 @@ public class CodeTest_106_120 {
     public void test119(){
         PascalsTriangleII_119 pascal = new PascalsTriangleII_119() ;
         System.out.println(pascal.getRow(3));
+    }
+    @Test
+    public void test120(){
+        Triangle_120 triangle = new Triangle_120();
+        List<List<Integer>> lists = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+        list.add(-1);
+        lists.add(list);
+
+        List<Integer> list1 = new ArrayList<>();
+        list1.add(2);
+        list1.add(3);
+        lists.add(list1);
+
+        List<Integer> list2 = new ArrayList<>();
+        list2.add(1);
+        list2.add(-1);
+        list2.add(-3);
+        lists.add(list2);
+
+        System.out.println(triangle.minimumTotal(lists));
     }
 }

@@ -9,7 +9,7 @@ public class BestTimetoBuyandSellStock_121 {
             return 0;
         }
         int[] left = new int[prices.length + 1];
-        left[0] = 0;
+        left[0] = Integer.MAX_VALUE;
         int res = Integer.MIN_VALUE;
         for (int i = 1; i < prices.length; i++) {
             left[i] = Math.min(left[i - 1], prices[i - 1]);
