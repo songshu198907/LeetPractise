@@ -59,8 +59,49 @@ public class CodeTest_121_135 {
     @Test
     public void test126() {
         WordLadderII_126 word = new WordLadderII_126();
-        String arr[] = {"hot", "dog"};
+        String arr[] = {"hot", "dot", "dog", "lot", "log"};
         Set set = new HashSet<>(Arrays.asList(arr));
-        System.out.println(word.findLadders("hot", "dog", set));
+        System.out.println(word.findLadders("hit", "cog", set));
+//
     }
+
+    @Test
+    public void test127() {
+        WordLadder_127 word = new WordLadder_127();
+        String[] arr = {
+                "hot", "dot", "dog", "lot", "log"
+        };
+//        Set set = new HashSet<>(Arrays.asList(arr));
+//        System.out.println(word.ladderLength("hit", "cog", set));
+
+        Set set = new HashSet<>(Arrays.asList(arr));
+        System.out.println(word.ladderLength("nanny", "aloud", set));
+    }
+
+    @Test
+    public void test128() {
+        LongestConsecutiveSequence_128 longest = new LongestConsecutiveSequence_128();
+        System.out.println(longest.longestConsecutive(new int[]{100, 4, 200, 1, 3, 2}));
+        System.out.println(longest.longestConsecutive(new int[]{0, 1000, 233, -2, 1, -1, 5, 4, 3, 2}));
+        System.out.println(longest.longestConsecutive(new int[]{0}));
+    }
+
+    @Test
+    public void test130() {
+        SurroundedRegions_130 surr = new SurroundedRegions_130();
+        String[] strings = {
+                "X X X XX", "X XO X X", "X OX O X",
+                "XO O O X", "XXXOX"
+        };
+        char[][] chars = new char[strings.length][];
+        for (int i = 0; i < strings.length; i++) {
+            chars[i] = strings[i].replaceAll("\\s", "").toCharArray();
+        }
+        surr.solve(chars);
+        for (char[] aChar : chars) {
+            System.out.println(Arrays.toString(aChar));
+        }
+    }
+
+
 }
