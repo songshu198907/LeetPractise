@@ -63,4 +63,23 @@ public class PalindromePartitioningII_132 {
         }
         return true;
     }
+
+    int minCut2(String s) {
+        int len = s.length();
+        int[] d = new int[len + 1];
+        boolean[][] P = new boolean[len][len];
+        //the worst case is cutting by each char
+        for (int i = 0; i <= len; i++)
+            d[i] = len - i;
+
+        for (int i = len - 1; i >= 0; i--) {
+            for (int j = i; j < len; j++) {
+                if (s.charAt(i) == s.charAt(j) && (j - i < 2 || P[i + 1][j - 1])) {
+                    P[i][j] = true;
+                    d[i] = Math.min(d[i], d[j + 1] + 1);
+                }
+            }
+        }
+        return d[0] - 1;
+    }
 }
