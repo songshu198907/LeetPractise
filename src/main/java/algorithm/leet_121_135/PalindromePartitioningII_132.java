@@ -18,7 +18,7 @@ public class PalindromePartitioningII_132 {
         Set words = new HashSet<>();
         words.add(s);
         helper(new HashSet<>(), words);
-        return cut - 1;
+        return cut;
     }
 
     private void helper(Set<String> used, Set<String> words) {
@@ -30,21 +30,22 @@ public class PalindromePartitioningII_132 {
             for (int i = 1; i <= word.length(); i++) {
                 remaining = word.substring(i);
                 if (!used.contains(remaining)) {
-                    if (!checkPalindrome(word.substring(0, i)))
-                        break;
+                    if (checkPalindrome(word.substring(0, i))) {
+                        layers.add(remaining);
+                        current.add(remaining);
+                        if (checkPalindrome(remaining)) {
+                            found = true;
+                            cut++;
+                            return;
+                        }
+                    }
 
-                    layers.add(remaining);
-                    current.add(remaining);
+
                 }
-                if (remaining.isEmpty()) {
-                    found = true;
-                }
+
 
             }
-            if (checkPalindrome(remaining)) {
-                cut++;
-                return;
-            }
+
         }
         cut++;
         if (!found) {
