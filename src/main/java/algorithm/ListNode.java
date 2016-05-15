@@ -10,18 +10,27 @@ public class ListNode {
     public ListNode(int x) {
         val = x;
     }
-    public  void print(){
+
+    public void print() {
         ListNode node = this;
-        StringBuilder sb = new StringBuilder( "[");
-        while (node != null ){
+        StringBuilder sb = new StringBuilder("[");
+        while (node != null) {
             sb.
                     append(node.val).
                     append(",");
             node = node.next;
         }
         String output = sb.toString();
-        output = output.substring(0,output.lastIndexOf(","));
-        System.out.println(output+"]");
+        output = output.substring(0, output.lastIndexOf(","));
+        System.out.println(output + "]");
 
+    }
+
+    @Override
+    public String toString() {
+        return "ListNode{" +
+                "val=" + val +
+                ", next=" + next +
+                '}';
     }
 }
