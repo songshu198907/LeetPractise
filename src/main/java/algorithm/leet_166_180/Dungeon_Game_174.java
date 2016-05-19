@@ -15,50 +15,21 @@ public class Dungeon_Game_174 {
         }
         int coLen = dungeon[0].length;
         int[][] blood = new int[rowLen][coLen];
-        blood[0][0] = dungeon[0][0] > 0 ? 1 : dungeon[0][0];
-
-        for (int i = 1; i < coLen; i++) {
-            if (dungeon[0][i] >= 0) {
-
-                blood[0][i] = blood[0][i - 1] >= 0 ? blood[0][i - 1] + dungeon[0][i] : blood[0][i - 1];
-            } else {
-                blood[0][i] = blood[0][i - 1] + dungeon[0][i];
-            }
-
+        blood[rowLen - 1][coLen - 1] = (1 - dungeon[rowLen - 1][coLen - 1]) > 1 ? 1 - dungeon[rowLen - 1][coLen - 1] : 1;
+        for (int i = coLen - 2; i >= 0; i--) {
+            int value = blood[rowLen - 1][i + 1] - dungeon[rowLen - 1][i];
+            blood[rowLen - 1][i] = value < 1 ? 1 : value;
         }
-        for (int i = 1; i < rowLen; i++) {
-            if (dungeon[i][0] >= 0) {
-                blood[i][0] = blood[i - 1][0] >= 0 ? blood[i - 1][0] + dungeon[i][0] : blood[i - 1][0];
-            } else {
-                blood[i][0] = blood[i - 1][0] + dungeon[i][0];
+        for (int i = rowLen - 2; i >= 0; i--) {
+            int value = blood[i + 1][coLen - 1] - dungeon[i][coLen - 1];
+            blood[i][coLen - 1] = value < 1 ? 1 : value;
+        }
+        for (int i = rowLen - 2; i >= 0; i--) {
+            for (int j = coLen - 2; j >= 0; j--) {
+                int value = Math.min(blood[i + 1][j], blood[i][j + 1]) - dungeon[i][j];
+                blood[i][j] = value < 1 ? 1 : value;
             }
         }
-        for (int i = 1; i < rowLen; i++)
-            for (int j = 1; j < coLen; j++) {
-//                if (dungeon[i][j] >= 0) {
-//                    blood[i][j] = Math.max(blood[i - 1][j], blood[i][j - 1]);
-//                } else
-//
-//                    blood[i][j] = Math.max(blood[i - 1][j], blood[i][j - 1]) + dungeon[i][j];
-                int max = Math.max(blood[i - 1][j], blood[i][j - 1]);
-                if (max >= 0) {
-                    if (blood[i - 1][j] == max) {
-                        blood[i][j] = blood[i - 1][j] + dungeon[i][j];
-                    } else {
-                        blood[i][j] = blood[i][j - 1] + dungeon[i][j];
-                    }
-                } else {
-                    if (dungeon[i][j] >= 0) {
-                        blood[i][j] = Math.max(blood[i][j - 1], blood[i - 1][j]);
-                    } else {
-                        blood[i][j] = Math.max(blood[i][j - 1], blood[i - 1][j]) + dungeon[i][j];
-                    }
-                }
-            }
-        if (blood[rowLen - 1][coLen - 1] > 0) {
-            return 1;
-        } else {
-            return 1 - blood[rowLen - 1][coLen - 1];
-        }
+        return blood[0][0];
     }
 }

@@ -1,7 +1,4 @@
-import algorithm.leet_166_180.Dungeon_Game_174;
-import algorithm.leet_166_180.Excel_Sheet_Column_Title_168;
-import algorithm.leet_166_180.FactorialTrailingZeroes_172;
-import algorithm.leet_166_180.Fraction_to_Recurring_Decimal_166;
+import algorithm.leet_166_180.*;
 import org.junit.Test;
 
 /**
@@ -39,6 +36,19 @@ public class CodeTest_166_180 {
     public void test174() {
         Dungeon_Game_174 dungon = new Dungeon_Game_174();
         System.out.println(dungon.calculateMinimumHP(new int[][]{{-2, -3, 3}, {-5, -10, 1}, {10, 30, -5}}));
+        System.out.println(dungon.calculateMinimumHP(new int[][]{{2, -3}}));
+        System.out.println(dungon.calculateMinimumHP(new int[][]{{-2, 5}}));
 
+    }
+
+    @Test
+    public void test179() {
+        Largest_Number_179 larger = new Largest_Number_179();
+//        System.out.println(larger.largestNumber(new int[]{32,32311}));
+//        System.out.println(larger.largestNumber(new int[]{32,32341}));
+        System.out.println(larger.largestNumber(new int[]{121, 12}));
+        System.out.println(larger.largestNumber(new int[]{12, 121}));
+//        System.out.println(larger.largestNumber(new int[]{1,1,1}));
+//        System.out.println(larger.largestNumber(new int[]{0}));
     }
 }
