@@ -152,4 +152,13 @@ public class CodeTest_181_end {
 
         System.out.println(trie.startsWith("a"));
     }
+
+    @Test
+    public void test212() {
+        Word_Search_II_212 word = new Word_Search_II_212();
+        System.out.println(word.findWords(String2CharArray.convert(new String[]{"oaan", "etae",
+                "ihkr", "iflv"}), new String[]{
+                "oath", "pea", "eat", "rain"
+        }));
+    }
 }

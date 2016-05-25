@@ -29,7 +29,17 @@ public class Word_Search_II_212 {
         if (node.level == word.length() - 1) {
             list.add(word);
         } else {
-            search(support, board, node.row, node.col, word, node.level, node);
+            int row = node.row;
+            int col = node.col;
+            int index = node.level;
+            if (search(support, board, row + 1, col, word, index + 1, node)
+                    || search(support, board, row - 1, col, word, index + 1, node)
+                    || search(support, board, row, col + 1, word, index + 1, node)
+                    || search(support, board, row, col - 1, word, index + 1, node)
+                    ) {
+
+                list.add(word);
+            }
         }
     }
 
@@ -40,14 +50,23 @@ public class Word_Search_II_212 {
         if (index == word.length()) {
             return true;
         }
-        if (board[i][j] != word.charAt(index) || support[i][j] == 1)
+        char ch = board[i][j];
+        if (ch != word.charAt(index) || support[i][j] == 1) {
+            if (node.children[ch - 'a'] == null) {
+                node.children[ch - 'a'] = new TreeNode(index, i, j);
+            }
             return false;
+        }
+
         support[i][j] = 1;
+        node.children[ch - 'a'] = new TreeNode(index, i, j);
+        node = node.children[ch - 'a'];
+
         boolean res;
-        res = search(support, board, i + 1, j, word, index + 1)
-                || search(support, board, i - 1, j, word, index + 1)
-                || search(support, board, i, j + 1, word, index + 1)
-                || search(support, board, i, j - 1, word, index + 1);
+        res = search(support, board, i + 1, j, word, index + 1, node)
+                || search(support, board, i - 1, j, word, index + 1, node)
+                || search(support, board, i, j + 1, word, index + 1, node)
+                || search(support, board, i, j - 1, word, index + 1, node);
         support[i][j] = 0;
         return res;
 
@@ -63,7 +82,7 @@ public class Word_Search_II_212 {
             this(-1, -1, -1);
         }
 
-        public TreeNode(int level, int col, int row) {
+        public TreeNode(int level, int row, int col) {
             this.level = level;
             this.col = col;
             this.row = row;
