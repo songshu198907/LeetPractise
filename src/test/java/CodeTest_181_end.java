@@ -161,4 +161,15 @@ public class CodeTest_181_end {
                 "oath", "pea", "eat", "rain"
         }));
     }
+
+    @Test
+    public void test214() {
+        Shortest_Palindrome_214 shortest = new Shortest_Palindrome_214();
+        System.out.println(shortest.shortestPalindrome("aacecaaa"));
+        System.out.println(shortest.shortestPalindrome("abcd"));
+        System.out.println(shortest.shortestPalindrome("ba"));
+        System.out.println(shortest.shortestPalindrome("aa"));
+        System.out.println(shortest.shortestPalindrome("aba"));
+
+    }
 }
