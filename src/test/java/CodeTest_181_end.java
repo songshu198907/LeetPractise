@@ -103,6 +103,33 @@ public class CodeTest_181_end {
         System.out.println(iso.isIsomorphic("aa", "bb"));
     }
 
+    @Test
+    public void test206() {
+        Reverse_Linked_List_206 reverse = new Reverse_Linked_List_206();
+        System.out.println(reverse.reverseList2(NodeListBuilder.BuildList(new int[]{1})));
+    }
+
+    @Test
+    public void test208() {
+        Trie trie = new Trie();
+        trie.insert("ab");
+        System.out.println(trie.search("abc"));
+        System.out.println(trie.search("ab"));
+        System.out.println(trie.startsWith("abc"));
+        System.out.println(trie.startsWith("ab"));
+        trie.insert("ab");
+        System.out.println(trie.search("abc"));
+        System.out.println(trie.startsWith("abc"));
+        trie.insert("abc");
+        System.out.println(trie.search("abc"));
+        System.out.println(trie.startsWith("abc"));
+    }
+
+    @Test
+    public void test212(){
+        Word_Search_II_212 word = new Word_Search_II_212();
+        System.out.println(word.findWords(String2CharArray.convert(new String[]{"oaan","etae","ihkr","iflv"}),new String[]{"oath","pea","eat","rain"}) );
+    }
     int converter(int binary) {
         int res = 0;
         int base = 1;
@@ -113,53 +140,6 @@ public class CodeTest_181_end {
             binary = binary / 10;
         }
         return res;
-    }
-
-    @Test
-    public void test206() {
-        Reverse_Linked_List_206 reverse = new Reverse_Linked_List_206();
-        System.out.println(reverse.reverseList2(NodeListBuilder.BuildList(new int[]{1})));
-    }
-
-    @Test
-    public void test207() {
-        Course_Schedule_207 course = new Course_Schedule_207();
-        System.out.println(course.canFinish(2, new int[][]{{1, 0}}));
-        System.out.println(course.canFinish(2, new int[][]{{1, 0}, {0, 1}}));
-        System.out.println(course.canFinish(4, new int[][]{{3, 0}, {0, 1}}));
-        System.out.println(course.canFinish(3, new int[][]{{0, 1}, {0, 2}, {1, 2}}));
-        System.out.println(course.canFinish(4, new int[][]{{0, 1}, {3, 1}, {1, 3}, {3, 2}}));
-
-    }
-
-    @Test
-    public void test210() {
-        Course_Schedule_II_210 cource = new Course_Schedule_II_210();
-        System.out.println(Arrays.toString(cource.findOrder(2, new int[][]{{0, 1}, {1, 0}})));
-    }
-
-    @Test
-    public void test208() {
-        Trie trie = new Trie();
-        trie.insert("abc");
-        System.out.println(trie.search("abc"));
-        System.out.println(trie.search("ab"));
-
-        trie.insert("ab");
-        System.out.println(trie.search("ab"));
-        trie.insert("ab");
-        System.out.println(trie.search("ab"));
-
-        System.out.println(trie.startsWith("a"));
-    }
-
-    @Test
-    public void test212() {
-        Word_Search_II_212 word = new Word_Search_II_212();
-        System.out.println(word.findWords(String2CharArray.convert(new String[]{"oaan", "etae",
-                "ihkr", "iflv"}), new String[]{
-                "oath", "pea", "eat", "rain"
-        }));
     }
 
     @Test

@@ -5,6 +5,16 @@ import org.junit.Test;
  * Created by songheng on 5/17/16.
  */
 public class CodeTest_151_165 {
+    public void test151() {
+        Reverse_Words_in_a_String_151 reverse = new Reverse_Words_in_a_String_151();
+        System.out.println(reverse.reverseWords("the sky is blue"));
+        System.out.println(reverse.reverseWords(""));
+        System.out.println(reverse.reverseWords("   a   b "));
+        System.out.println(reverse.reverseWords("a"));
+
+
+    }
+
     @Test
     public void test152() {
         Maximum_Product_Subarray_152 max = new Maximum_Product_Subarray_152();
@@ -51,3 +61,4 @@ public class CodeTest_151_165 {
         System.out.println(compare.compareVersion("1.4.0.0.0.0", "1.4"));
     }
 }
+
