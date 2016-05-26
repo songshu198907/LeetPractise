@@ -1,104 +1,97 @@
 package algorithm.leet_181_end;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by songheng on 5/25/16.
  */
 public class Word_Search_II_212 {
-    private TreeNode root;
+    Set<String> res = new HashSet<String>();
 
     public List<String> findWords(char[][] board, String[] words) {
-        List<String> res = new ArrayList<>();
-        root = new TreeNode();
-        if (words.length == 0 || board.length == 0)
-            return res;
-        int rowLen = board.length;
-        int coLen = board[0].length;
-
+        Trie trie = new Trie();
         for (String word : words) {
-            helper(board, res, rowLen, coLen, word);
+            trie.insert(word);
         }
-        return res;
-    }
 
-    private void helper(char[][] board, List<String> list, int rowLen, int coLen, String word) {
-        int[][] support = new int[rowLen][coLen];
-        TreeNode node = root.search(word, 0, support);
-        if (node.level == word.length() - 1) {
-            list.add(word);
-        } else {
-            int row = node.row;
-            int col = node.col;
-            int index = node.level;
-            if (search(support, board, row + 1, col, word, index + 1, node)
-                    || search(support, board, row - 1, col, word, index + 1, node)
-                    || search(support, board, row, col + 1, word, index + 1, node)
-                    || search(support, board, row, col - 1, word, index + 1, node)
-                    ) {
-
-                list.add(word);
+        int m = board.length;
+        int n = board[0].length;
+        boolean[][] visited = new boolean[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                dfs(board, visited, "", i, j, trie);
             }
         }
+
+        return new ArrayList<String>(res);
     }
 
-    private boolean search(int[][] support, char[][] board, int i, int j, String word, int index, TreeNode node) {
-        if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) {
-            return false;
+    public void dfs(char[][] board, boolean[][] visited, String str, int x, int y, Trie trie) {
+        if (x < 0 || x >= board.length || y < 0 || y >= board[0].length) return;
+        if (visited[x][y]) return;
+
+        str += board[x][y];
+        if (!trie.startsWith(str)) return;
+
+        if (trie.search(str)) {
+            res.add(str);
         }
-        if (index == word.length()) {
+
+        visited[x][y] = true;
+        dfs(board, visited, str, x - 1, y, trie);
+        dfs(board, visited, str, x + 1, y, trie);
+        dfs(board, visited, str, x, y - 1, trie);
+        dfs(board, visited, str, x, y + 1, trie);
+        visited[x][y] = false;
+    }
+
+    class TrieNode {
+        public TrieNode[] children = new TrieNode[26];
+        public String item = "";
+
+        // Initialize your data structure here.
+        public TrieNode() {
+        }
+    }
+
+    class Trie {
+        private TrieNode root;
+
+        public Trie() {
+            root = new TrieNode();
+        }
+
+        // Inserts a word into the trie.
+        public void insert(String word) {
+            TrieNode node = root;
+            for (char c : word.toCharArray()) {
+                if (node.children[c - 'a'] == null) {
+                    node.children[c - 'a'] = new TrieNode();
+                }
+                node = node.children[c - 'a'];
+            }
+            node.item = word;
+        }
+
+        // Returns if the word is in the trie.
+        public boolean search(String word) {
+            TrieNode node = root;
+            for (char c : word.toCharArray()) {
+                if (node.children[c - 'a'] == null) return false;
+                node = node.children[c - 'a'];
+            }
+            return node.item.equals(word);
+        }
+
+        // Returns if there is any word in the trie
+        // that starts with the given prefix.
+        public boolean startsWith(String prefix) {
+            TrieNode node = root;
+            for (char c : prefix.toCharArray()) {
+                if (node.children[c - 'a'] == null) return false;
+                node = node.children[c - 'a'];
+            }
             return true;
-        }
-        char ch = board[i][j];
-        if (ch != word.charAt(index) || support[i][j] == 1) {
-            if (node.children[ch - 'a'] == null) {
-                node.children[ch - 'a'] = new TreeNode(index, i, j);
-            }
-            return false;
-        }
-
-        support[i][j] = 1;
-        node.children[ch - 'a'] = new TreeNode(index, i, j);
-        node = node.children[ch - 'a'];
-
-        boolean res;
-        res = search(support, board, i + 1, j, word, index + 1, node)
-                || search(support, board, i - 1, j, word, index + 1, node)
-                || search(support, board, i, j + 1, word, index + 1, node)
-                || search(support, board, i, j - 1, word, index + 1, node);
-        support[i][j] = 0;
-        return res;
-
-
-    }
-
-    class TreeNode {
-        int level;
-        int row, col;
-        TreeNode[] children;
-
-        public TreeNode() {
-            this(-1, -1, -1);
-        }
-
-        public TreeNode(int level, int row, int col) {
-            this.level = level;
-            this.col = col;
-            this.row = row;
-            children = new TreeNode[26];
-        }
-
-        private TreeNode search(String s, int index, int[][] support) {
-            if (index == s.length())
-                return this;
-            char ch = s.charAt(index);
-            if (children[ch - 'a'] == null)
-                return this;
-            else {
-                support[row][col] = 1;
-                return children[ch - 'a'].search(s, index + 1, support);
-            }
         }
     }
 }

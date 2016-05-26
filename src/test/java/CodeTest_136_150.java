@@ -94,4 +94,10 @@ public class CodeTest_136_150 {
                 new Point(0, 0), new Point(-1, -1), new Point(0, 0)
         }));
     }
+    @Test
+    public void test150(){
+        Evaluate_Reverse_Polish_Notation_150 eva = new Evaluate_Reverse_Polish_Notation_150();
+        System.out.println(eva.evalRPN(new String[]{"2", "1", "+", "3", "*"}));
+        System.out.println(eva.evalRPN(new String[]{"4", "13", "5", "/", "+"}));
+    }
 }

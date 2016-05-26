@@ -1,6 +1,7 @@
 package algorithm.leet_181_end;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -8,61 +9,39 @@ import java.util.List;
  */
 
 class TrieNode {
+    private TrieNode[] children;
+    public boolean hasWord;
+
     // Initialize your data structure here.
-    public Character ch;
-    public List<Character> childrenVal;
-    public List<TrieNode> children;
-
     public TrieNode() {
-        this('-');
-
+        children = new TrieNode[26];
+        hasWord = false;
     }
 
-    public TrieNode(Character ch) {
-        this.ch = ch;
-        children = new ArrayList<>();
-        childrenVal = new ArrayList<>();
-    }
-
-    public void insert(String str) {
-        if (str.isEmpty()) {
-            childrenVal.add('1');
-            children.add(new TrieNode());
+    public void insert(String word, int index) {
+        if (index == word.length()) {
+            this.hasWord = true;
             return;
         }
-        char ch = str.charAt(0);
-        if (childrenVal.contains(ch)) {
-            int pos = childrenVal.indexOf(ch);
-            children.get(pos).insert(str.substring(1));
-        } else {
-            TrieNode nChild = new TrieNode(ch);
-            childrenVal.add(ch);
-            children.add(nChild);
-            nChild.insert(str.substring(1));
+
+        int pos = word.charAt(index) - 'a';
+        if (children[pos] == null) {
+            children[pos] = new TrieNode();
         }
+        children[pos].insert(word, index + 1);
     }
 
-    public boolean find(String str) {
-        if (str.isEmpty()) {
-            return childrenVal.contains('1');
-        } else {
-            if (childrenVal.contains(str.charAt(0))) {
-                int pos = childrenVal.indexOf(str.charAt(0));
-                return children.get(pos).find(str.substring(1));
-            } else return false;
+    public TrieNode find(String word, int index) {
+        if (index == word.length()) {
+            return this;
         }
-    }
 
-    public boolean startWith(String str) {
-        if (str.isEmpty()) {
-            return true;
+        int pos = word.charAt(index) - 'a';
+        if (children[pos] == null) {
+            return null;
         }
-        if (childrenVal.contains(str.charAt(0))) {
-            int pos = childrenVal.indexOf(str.charAt(0));
-            return children.get(pos).startWith(str.substring(1));
-        } else return false;
+        return children[pos].find(word, index + 1);
     }
-
 }
 
 public class Trie {
@@ -74,17 +53,19 @@ public class Trie {
 
     // Inserts a word into the trie.
     public void insert(String word) {
-        root.insert(word);
+        root.insert(word, 0);
     }
 
     // Returns if the word is in the trie.
     public boolean search(String word) {
-        return root.find(word);
+        TrieNode node = root.find(word, 0);
+        return (node != null && node.hasWord);
     }
 
     // Returns if there is any word in the trie
     // that starts with the given prefix.
     public boolean startsWith(String prefix) {
-        return root.startWith(prefix);
+        TrieNode node = root.find(prefix, 0);
+        return node != null;
     }
 }
