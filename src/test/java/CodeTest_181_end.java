@@ -145,11 +145,17 @@ public class CodeTest_181_end {
     @Test
     public void test214() {
         Shortest_Palindrome_214 shortest = new Shortest_Palindrome_214();
-        System.out.println(shortest.shortestPalindrome("aacecaaa"));
-        System.out.println(shortest.shortestPalindrome("abcd"));
-        System.out.println(shortest.shortestPalindrome("ba"));
-        System.out.println(shortest.shortestPalindrome("aa"));
-        System.out.println(shortest.shortestPalindrome("aba"));
+//        System.out.println(shortest.shortestPalindrome2("aacecaaa"));
+//        System.out.println(shortest.shortestPalindrome2("abcd"));
+//        System.out.println(shortest.shortestPalindrome2("ba"));
+        System.out.println(shortest.shortestPalindrome2("aa"));
+        System.out.println(shortest.shortestPalindrome2("aba"));
 
+    }
+
+    @Test
+    public void test215() {
+        Kth_Largest_Element_in_an_Array_215 k = new Kth_Largest_Element_in_an_Array_215();
+        System.out.println(k.findKthLargest(new int[]{-1,-1},2));
     }
 }
