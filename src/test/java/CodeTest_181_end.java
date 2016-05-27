@@ -158,4 +158,30 @@ public class CodeTest_181_end {
         Kth_Largest_Element_in_an_Array_215 k = new Kth_Largest_Element_in_an_Array_215();
         System.out.println(k.findKthLargest(new int[]{-1,-1},2));
     }
+
+    @Test
+    public void test216() {
+        Combination_Sum_III_216 comb = new Combination_Sum_III_216();
+//        System.out.println(comb.combinationSum3(2,18));
+        System.out.println(comb.combinationSum3(2, 6));
+    }
+
+    @Test
+    public void test217() {
+        Contains_Duplicate_217 contains = new Contains_Duplicate_217();
+    }
+
+    @Test
+    public void test218() {
+        The_Skyline_Problem_218 skyline = new The_Skyline_Problem_218();
+
+//      skyline.getSkyline(new int[][]{{0,2147483647,2147483647}}).stream().forEach(arr -> System.out.println(Arrays.toString(arr)));
+        skyline.getSkyline(new int[][]{{2, 9, 10}, {3, 7, 15}, {5, 12, 12}, {15, 20, 10}, {19, 24, 8}}).stream().forEach(arr -> System.out.println(Arrays.toString(arr)));
+    }
+
+    @Test
+    public void test220() {
+        ContainsDuplicateIII_220 contains = new ContainsDuplicateIII_220();
+        System.out.println(contains.containsNearbyAlmostDuplicate(new int[]{0, 2}, 1, 2147483647));
+    }
 }
