@@ -5,6 +5,8 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by songheng on 5/19/16.
@@ -173,15 +175,38 @@ public class CodeTest_181_end {
 
     @Test
     public void test218() {
-        The_Skyline_Problem_218 skyline = new The_Skyline_Problem_218();
-
+        The_Skyline_Problem_218_2 skyline = new The_Skyline_Problem_218_2();
+//
 //      skyline.getSkyline(new int[][]{{0,2147483647,2147483647}}).stream().forEach(arr -> System.out.println(Arrays.toString(arr)));
         skyline.getSkyline(new int[][]{{2, 9, 10}, {3, 7, 15}, {5, 12, 12}, {15, 20, 10}, {19, 24, 8}}).stream().forEach(arr -> System.out.println(Arrays.toString(arr)));
+//        skyline.getSkyline(new int[][]{{1,2,1}, {1,2,2}, {1,2,3}}).stream().forEach(arr -> System.out.println(Arrays.toString(arr)));
+//        skyline.getSkyline(new int[][]{{1,230301203,2}}).stream().forEach(arr -> System.out.println(Arrays.toString(arr)));
     }
 
     @Test
     public void test220() {
         ContainsDuplicateIII_220 contains = new ContainsDuplicateIII_220();
         System.out.println(contains.containsNearbyAlmostDuplicate(new int[]{0, 2}, 1, 2147483647));
+
+    }
+    @Test
+    public void test221(){
+        Maximal_Square_221 maximal = new Maximal_Square_221();
+//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0"})));
+//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0000","0000"})));
+//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"1"})));
+//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0110","0110"})));
+//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0110","0100"})));
+        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"1010","1011","1011","1111"})));
+    }
+
+    @Test
+    public void test(){
+        List<Integer> list = new LinkedList<>();
+        for(int i = 0 ; i < 100 ; i++) {
+            list.add(0,i);
+        }
+        System.out.println(list);
+
     }
 }
