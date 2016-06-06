@@ -192,12 +192,12 @@ public class CodeTest_181_end {
     @Test
     public void test221(){
         Maximal_Square_221 maximal = new Maximal_Square_221();
-//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0"})));
-//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0000","0000"})));
-//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"1"})));
-//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0110","0110"})));
-//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0110","0100"})));
-        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"1010","1011","1011","1111"})));
+        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0"})));
+        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"1101","1101","1111"})));
+        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"1"})));
+        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0110","0110"})));
+        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0110","0100"})));
+        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"01101","11010","01110","11110","11111","00000"})));
     }
 
     @Test

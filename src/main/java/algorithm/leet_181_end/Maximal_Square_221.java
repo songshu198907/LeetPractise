@@ -22,33 +22,62 @@ public class Maximal_Square_221 {
 
             }
             Queue<Integer> queue = new LinkedList<>();
-            int min = 0 ;
-            for(int j = 0 ; j < coLen ;j++) {
-                if(j >= coLen) break;
-                if(queue.isEmpty()){
-                    if(arr[j] != 0) {
+            int min = 0;
+            for (int j = 0; j < coLen; j++) {
+                if (j >= coLen) break;
+                if (queue.isEmpty()) {
+                    if (arr[j] != 0) {
                         queue.offer(arr[j]);
                         min = queue.peek();
                     }
                 } else {
-                    if(min == queue.size()){
-                        res = Math.max(res, min * min);
-                        int size = queue.size();
-                        for(int k = 0 ; k < size ; k ++ ){
-                            if(queue.peek() != min )queue.poll();
-                            else {
-                                queue.poll();
-                                min = queue.peek();
-                                break;
+                    if (arr[j] != 0) {
+                        if (min == queue.size()) {
+                            res = Math.max(res, min * min);
+                            int size = queue.size();
+                            for (int k = 0; k < size; k++) {
+                                if (queue.peek() != min) queue.poll();
+                                else {
+                                    queue.poll();
+                                    min = queue.isEmpty() ? 0 : queue.peek();
+                                    break;
+                                }
                             }
+                            if(arr[j] > 1 ){
+                                queue.offer(arr[j]);
+                            } else {
+                                queue.clear();
+                                res = Math.max(1, res);
+                            }
+                        } else {
+                            queue.offer(arr[j]);
+                            if (queue.size() == arr[j]) {
+                                res = Math.max(res, arr[j] * arr[j]);
+                            } else {
+                                if (arr[j] < queue.size()) {
+                                    res = (int) Math.max(res, Math.pow(queue.size() - 1, 2));
+                                    queue.clear();
+                                    min = arr[j];
+                                    queue.offer(arr[j]);
+                                } else {
+                                    min = Math.min(min, arr[j]);
+                                }
+                            }
+
                         }
+                    } else {
+                        res = Math.max(res, queue.size() * queue.size());
+                        queue.clear();
                     }
-                    if()
 
 
                 }
             }
+            if (!queue.isEmpty()){
 
+                res = Math.max(res, queue.size() * queue.size());
+                queue.clear();
+            }
 
 
         }
