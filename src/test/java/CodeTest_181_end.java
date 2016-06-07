@@ -1,5 +1,6 @@
 import algorithm.NodeListBuilder;
 import algorithm.String2CharArray;
+import algorithm.TreeBuilder;
 import algorithm.leet_181_end.*;
 import org.junit.Test;
 
@@ -192,12 +193,26 @@ public class CodeTest_181_end {
     @Test
     public void test221(){
         Maximal_Square_221 maximal = new Maximal_Square_221();
-        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0"})));
-        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"1101","1101","1111"})));
-        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"1"})));
-        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0110","0110"})));
-        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0110","0100"})));
+        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"10100", "10111", "11111", "10010"})));
+        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"11100", "11100", "11111", "01111", "01111", "01111"})));
         System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"01101","11010","01110","11110","11111","00000"})));
+//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0"})));
+//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"1101","1101","1111"})));
+//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"1"})));
+//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0110","0110"})));
+//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0110","0100"})));
+//        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"01101","11010","01110","11110","11111","00000"})));
+    }
+
+
+    @Test
+    public void test222() {
+        Count_Complete_Tree_Nodes_222 count = new Count_Complete_Tree_Nodes_222();
+        Object[] objects = new Object[1024];
+        for (int i = 0; i < 1023; i++) {
+            objects[i] = i + 1;
+        }
+        System.out.println(count.countNodes(TreeBuilder.build(objects)));
     }
 
     @Test
