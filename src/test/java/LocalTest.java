@@ -1,21 +1,46 @@
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by songheng on 3/18/16.
  */
 public class LocalTest {
     public static void main(String[] args) {
-        int[] a = {
-               0, 1,2,3,4,5,6,7,8,9
-        };
-        int[] b = Arrays.copyOfRange(a,0,4);
-        int[] c = Arrays.copyOfRange(a,5,a.length);
-        System.out.println(Arrays.toString(b));
-        System.out.println(Arrays.toString(c));
-        int[] merged = new int[c.length +b.length];
-        System.arraycopy(b,0,merged,0,b.length);
-        System.arraycopy(c,0,merged,b.length,c.length);
-        System.out.println(Arrays.toString(merged));
+        String str = " ( 2+32 -( 322 + 12) +21 )";
+        System.out.println(getTokens(str));
+
+    }
+
+    private static List<String> getTokens(String str) {
+        List<String> tokens = new ArrayList<>();
+        int pos = 0;
+        while (pos < str.length()) {
+            for (int i = pos; i < str.length(); i++) {
+                if (str.charAt(i) == '+'
+                        || str.charAt(i) == '-'
+                        || str.charAt(i) == '*'
+                        || str.charAt(i) == '/'
+                        || str.charAt(i) == '('
+                        || str.charAt(i) == ')'
+                        ) {
+                    if (i == pos) {
+                        pos++;
+                        tokens.add(str.substring(i, pos));
+                        break;
+                    } else {
+                        String tmp = str.substring(pos, i).trim();
+                        if (!tmp.trim().isEmpty()) {
+
+                            tokens.add(str.substring(pos, i).trim());
+                        }
+                        pos = i;
+                        break;
+                    }
+
+                }
+            }
+        }
+        return tokens;
 
     }
 }

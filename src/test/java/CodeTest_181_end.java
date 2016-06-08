@@ -129,10 +129,11 @@ public class CodeTest_181_end {
     }
 
     @Test
-    public void test212(){
+    public void test212() {
         Word_Search_II_212 word = new Word_Search_II_212();
-        System.out.println(word.findWords(String2CharArray.convert(new String[]{"oaan","etae","ihkr","iflv"}),new String[]{"oath","pea","eat","rain"}) );
+        System.out.println(word.findWords(String2CharArray.convert(new String[]{"oaan", "etae", "ihkr", "iflv"}), new String[]{"oath", "pea", "eat", "rain"}));
     }
+
     int converter(int binary) {
         int res = 0;
         int base = 1;
@@ -159,7 +160,7 @@ public class CodeTest_181_end {
     @Test
     public void test215() {
         Kth_Largest_Element_in_an_Array_215 k = new Kth_Largest_Element_in_an_Array_215();
-        System.out.println(k.findKthLargest(new int[]{-1,-1},2));
+        System.out.println(k.findKthLargest(new int[]{-1, -1}, 2));
     }
 
     @Test
@@ -190,12 +191,13 @@ public class CodeTest_181_end {
         System.out.println(contains.containsNearbyAlmostDuplicate(new int[]{0, 2}, 1, 2147483647));
 
     }
+
     @Test
-    public void test221(){
+    public void test221() {
         Maximal_Square_221 maximal = new Maximal_Square_221();
         System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"10100", "10111", "11111", "10010"})));
         System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"11100", "11100", "11111", "01111", "01111", "01111"})));
-        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"01101","11010","01110","11110","11111","00000"})));
+        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"01101", "11010", "01110", "11110", "11111", "00000"})));
 //        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"0"})));
 //        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"1101","1101","1111"})));
 //        System.out.println(maximal.maximalSquare(String2CharArray.convert(new String[]{"1"})));
@@ -216,10 +218,28 @@ public class CodeTest_181_end {
     }
 
     @Test
-    public void test(){
+    public void test223() {
+        Rectangle_Area_223 rect = new Rectangle_Area_223();
+        System.out.println(rect.computeArea(-3, 0, 3, 4, 0, -1, 9, 2));
+        System.out.println(rect.computeArea(0, 0, 0, 0, -1, -1, 1, 1));
+        System.out.println(rect.computeArea(-2, -2, 2, 2, 3, 3, 4, 4));
+        System.out.println(rect.computeArea(-2, -2, 2, 2, -3, -3, 3, -1));
+    }
+
+    @Test
+    public void test224() {
+        Basic_Calculator_224 basic = new Basic_Calculator_224();
+        System.out.println(basic.calculate("1 + 1"));
+        System.out.println(basic.calculate("2-1 + 2"));
+        System.out.println(basic.calculate("(1+(4+5+2)-3)+(6+8)"));
+        System.out.println(basic.calculate("   (  3 ) "));
+    }
+
+    @Test
+    public void test() {
         List<Integer> list = new LinkedList<>();
-        for(int i = 0 ; i < 100 ; i++) {
-            list.add(0,i);
+        for (int i = 0; i < 100; i++) {
+            list.add(0, i);
         }
         System.out.println(list);
 
