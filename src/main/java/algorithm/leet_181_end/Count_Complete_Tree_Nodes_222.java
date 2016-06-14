@@ -2,73 +2,39 @@ package algorithm.leet_181_end;
 
 import algorithm.TreeNode;
 
-import java.util.Stack;
-
 /**
  * Created by songheng on 6/7/16.
  */
 public class Count_Complete_Tree_Nodes_222 {
     public int countNodes(TreeNode root) {
-        if (root == null) return 0;
+        if(root==null) return 0;
 
-        int count = 0;
-        int leaf = 0;
-        TreeNode node = root;
-        Stack<TreeNode> stack = new Stack<>();
-        while (node != null) {
-            stack.push(node);
-            node = node.left;
-        }
-        node = root;
-        while (node != null) {
-            count++;
-            node = node.right;
-        }
-        if (count == stack.size()) {
-            count = calculate(count);
+        int l = getLeft(root) + 1;
+        int r = getRight(root) + 1;
+
+        if(l==r) {
+            return (2<<(l-1)) - 1;
         } else {
-            stack.pop();
-            leaf++;
-            boolean visited = true;
+            return countNodes(root.left) + countNodes(root.right) + 1;
+        }
+    }
 
-            while (true) {
-                if (visited) {
-                    if (stack.peek().right == null) {
-                        return calculate(count) + leaf;
-                    } else {
-                        leaf++;
-                        TreeNode prev = stack.pop();
-                        while (stack.peek().right == prev) {
-                            prev = stack.pop();
-                        }
-                        node = stack.peek().right;
-                        while (node != null) {
-                            stack.push(node);
-                            node = node.left;
-                        }
-                        if (stack.size() > count)
-                            stack.pop();
-                        visited = false;
-
-                    }
-                } else {
-                    if (stack.peek().left == null) {
-                        return calculate(count) + leaf;
-                    } else {
-                        visited = true;
-                        leaf++;
-
-                    }
-                }
-            }
-
+    private int getLeft(TreeNode root) {
+        int count = 0;
+        while(root.left!=null) {
+            root = root.left;
+            ++count;
         }
         return count;
     }
 
-
-    private Integer calculate(int layer) {
-        return (int) Math.pow(2, layer) - 1;
+    private int getRight(TreeNode root) {
+        int count = 0;
+        while(root.right!=null) {
+            root = root.right;
+            ++count;
+        }
+        return count;
     }
 
 }

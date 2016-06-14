@@ -209,7 +209,7 @@ public class CodeTest_181_end {
     public void test222() {
         Count_Complete_Tree_Nodes_222 count = new Count_Complete_Tree_Nodes_222();
         Object[] objects = new Object[1024];
-        for (int i = 0; i < 1023; i++) {
+        for (int i = 0; i < 1024; i++) {
             objects[i] = i + 1;
         }
         System.out.println(count.countNodes(TreeBuilder.build(objects)));
