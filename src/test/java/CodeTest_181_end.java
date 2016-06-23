@@ -1,6 +1,7 @@
 import algorithm.NodeListBuilder;
 import algorithm.String2CharArray;
 import algorithm.TreeBuilder;
+import algorithm.TreeNode;
 import algorithm.leet_181_end.*;
 import org.junit.Test;
 
@@ -236,6 +237,15 @@ public class CodeTest_181_end {
     }
 
     @Test
+    public void test227() {
+        Basic_Calculator_II_227 base = new Basic_Calculator_II_227();
+//        System.out.println(base.calculate("3+2*2"));
+//        System.out.println(base.calculate(" 3/2 "));
+//        System.out.println(base.calculate(" 3+5 / 2 "));
+        System.out.println(base.calculate("0-2147483647"));
+    }
+
+    @Test
     public void test() {
         List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 100; i++) {
@@ -243,5 +253,77 @@ public class CodeTest_181_end {
         }
         System.out.println(list);
 
+    }
+
+    @Test
+    public void test230() {
+        Kth_Smallest_Element_in_a_BST_230 kth = new Kth_Smallest_Element_in_a_BST_230();
+//        System.out.println(kth.kthSmallest(TreeBuilder.build(new Object[]{1, null, 2}), 2));
+        System.out.println(kth.kthSmallest(TreeBuilder.build(new Object[]{2, 1}), 1));
+    }
+
+    @Test
+    public void test231() {
+        Power_of_Two_231 power = new Power_of_Two_231();
+        System.out.println(power.isPowerOfTwo(4));
+        System.out.println(power.isPowerOfTwo(1));
+        System.out.println(power.isPowerOfTwo(3));
+    }
+
+    @Test
+    public void test234() {
+        Palindrome_Linked_List_234 palind = new Palindrome_Linked_List_234();
+        System.out.println(palind.isPalindrome(NodeListBuilder.BuildList(new int[]{-16557, -8725, -29125, 28873, -21702, 15483, -28441, -17845, -4317, -10914, -10914, -4317, -17845, -28441, 15483, -21702, 28873, -29125, -8725, -16557})));
+
+    }
+
+    @Test
+    public void test236() {
+        LowestCommonAncestorOfBT_236 lowest = new LowestCommonAncestorOfBT_236();
+        lowest.lowestCommonAncestor(TreeBuilder.build(new Object[]{37, -34, -48, null, -100, -100, 48, null, null, null, null, -54, null, -71, -22, null, null, null, 8}), new TreeNode(-100), new TreeNode(-100)).print();
+    }
+
+    @Test
+    public void test239() {
+        Sliding_Window_Maximum_239 sliding = new Sliding_Window_Maximum_239();
+        System.out.println(Arrays.toString(sliding.maxSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3)));
+        System.out.println(Arrays.toString(sliding.maxSlidingWindow(new int[]{1, -1}, 1)));
+    }
+
+    @Test
+    public void test241() {
+        DifferentWaystoAddParentheses_241 diff = new DifferentWaystoAddParentheses_241();
+        System.out.println(diff.diffWaysToCompute("2*3-4*5"));
+    }
+
+    @Test
+    public void test260() {
+        SingleNumberIII_260 single = new SingleNumberIII_260();
+        System.out.println(Arrays.toString(single.singleNumber(new int[]{1, 2, 1, 3, 2, 5})));
+    }
+
+    @Test
+    public void test263() {
+        UglyNumber_263 ugly = new UglyNumber_263();
+        System.out.println(ugly.isUgly(2));
+        System.out.println(ugly.isUgly(6));
+        System.out.println(ugly.isUgly(8));
+        System.out.println(ugly.isUgly(14));
+        System.out.println(ugly.isUgly(1468));
+    }
+
+    @Test
+    public void test264() {
+        UglyNumberII_264 ugly = new UglyNumberII_264();
+        System.out.println(ugly.nthUglyNumber(10));
+    }
+
+    @Test
+    public void test273() {
+        IntegertoEnglishWords_273 inte = new IntegertoEnglishWords_273();
+        System.out.println(inte.numberToWords(123));
+        System.out.println(inte.numberToWords(12345));
+        System.out.println(inte.numberToWords(1234567));
+        System.out.println(inte.numberToWords(100));
     }
 }
