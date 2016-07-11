@@ -7,9 +7,9 @@ import java.util.List;
  * Created by songheng on 3/29/16.
  */
 public class ListNode {
-    int val;
+    public int val;
 
-    ListNode next;
+    public ListNode next;
 
     public ListNode(int val) {
         this.val = val;

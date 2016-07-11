@@ -319,6 +319,17 @@ public class CodeTest_181_end {
     }
 
     @Test
+    public void test269() {
+        Alien_Directory_269 alien = new Alien_Directory_269();
+        System.out.println(alien.alienOrder(new String[]{
+                "abc",
+                "abb", "acb", "bbc"}));
+//        Alien_Directory_269_2 alien2 = new Alien_Directory_269_2();
+//        System.out.println(alien2.alienOrder(new String[]{ "abc",
+//                "abb","acb"}));
+    }
+
+    @Test
     public void test273() {
         IntegertoEnglishWords_273 inte = new IntegertoEnglishWords_273();
         System.out.println(inte.numberToWords(123));
@@ -326,4 +337,5 @@ public class CodeTest_181_end {
         System.out.println(inte.numberToWords(1234567));
         System.out.println(inte.numberToWords(100));
     }
+
 }
