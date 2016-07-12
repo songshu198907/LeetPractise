@@ -338,4 +338,33 @@ public class CodeTest_181_end {
         System.out.println(inte.numberToWords(100));
     }
 
+    @Test
+    public void test287() {
+        Find_the_Duplicate_Number_287 find = new Find_the_Duplicate_Number_287();
+        System.out.println(find.findDuplicate(new int[]{1, 2, 3, 2}));
+        System.out.println(find.findDuplicate(new int[]{1, 1, 1, 3, 2}));
+    }
+
+    @Test
+    public void test291() {
+        Word_Pattern_II_291 word = new Word_Pattern_II_291();
+        System.out.println(word.wordPatternMatch("abab", "redblueredblue"));
+        System.out.println(word.wordPatternMatch("aaaa", "asdasdasdasd"));
+        System.out.println(word.wordPatternMatch("aabb", "xyzabcxzyabc"));
+    }
+
+    @Test
+    public void test293() {
+        Flip_Game_293 flip = new Flip_Game_293();
+        System.out.println(flip.generatePossibleNextMoves("++++"));
+    }
+
+    @Test
+    public void test294() {
+        Flip_Game_294 flip = new Flip_Game_294();
+        System.out.println(flip.canWin("+++++"));
+    }
+
+
+
 }
