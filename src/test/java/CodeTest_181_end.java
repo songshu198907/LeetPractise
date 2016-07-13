@@ -322,8 +322,18 @@ public class CodeTest_181_end {
     public void test269() {
         Alien_Directory_269 alien = new Alien_Directory_269();
         System.out.println(alien.alienOrder(new String[]{
-                "abc",
-                "abb", "acb", "bbc"}));
+                "wrt",
+                "wrf",
+                "er",
+                "ett",
+                "rftt"}));
+        Alien_Directory_269_3 alien3 = new Alien_Directory_269_3();
+        System.out.println(alien.alienOrder(new String[]{
+                "wrt",
+                "wrf",
+                "er",
+                "ett",
+                "rftt"}));
 //        Alien_Directory_269_2 alien2 = new Alien_Directory_269_2();
 //        System.out.println(alien2.alienOrder(new String[]{ "abc",
 //                "abb","acb"}));
@@ -336,6 +346,22 @@ public class CodeTest_181_end {
         System.out.println(inte.numberToWords(12345));
         System.out.println(inte.numberToWords(1234567));
         System.out.println(inte.numberToWords(100));
+    }
+
+    @Test
+    public void test278() {
+        int n = 2126753390;
+        First_Bad_Version_278 first = new First_Bad_Version_278();
+        System.out.println(first.firstBadVersion(n));
+
+    }
+
+    @Test
+    public void test279() {
+        Perfect_Squares_279 perfect = new Perfect_Squares_279();
+        System.out.println(perfect.numSquares(49));
+        System.out.println(perfect.numSquares(12));
+        System.out.println(perfect.numSquares(13));
     }
 
     @Test
@@ -365,6 +391,15 @@ public class CodeTest_181_end {
         System.out.println(flip.canWin("+++++"));
     }
 
+    @Test
+    public void test295() {
+        Serialize_and_Deserialize_Binary_Tree_297 sd = new Serialize_and_Deserialize_Binary_Tree_297();
+        System.out.println(sd.serialize(TreeBuilder.build(new Object[]{1, 2, 3, null, null, 4, 5})));
+        TreeNode node = TreeBuilder.build(new Object[]{1, 2, 3, null, null, 4, 5});
+        TreeNode second = sd.deserialize(sd.serialize(node));
+        node.print();
+        second.print();
+    }
 
 
 }

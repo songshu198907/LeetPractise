@@ -1,4 +1,8 @@
+
+
+
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 /**
@@ -8,6 +12,7 @@ public class LocalTest {
     public static void main(String[] args) {
         String str = " ( 2+32 -( 322 + 12) +21 )";
         System.out.println(getTokens(str));
+        Hashtable<Integer, Integer> table = new Hashtable<>();
 
     }
 
