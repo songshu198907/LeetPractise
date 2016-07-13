@@ -401,5 +401,44 @@ public class CodeTest_181_end {
         second.print();
     }
 
+    @Test
+    public void test296() {
+        Best_Meeting_Point_296 best = new Best_Meeting_Point_296();
+        System.out.println(best.minTotalDistance(new int[][]{{1, 0, 0, 0, 1}, {0, 0, 0, 0, 0}, {0, 0, 1, 0, 0}}));
+    }
+
+    @Test
+    public void test298() {
+        Binary_Tree_Longest_Consecutive_Sequence_298 longest = new Binary_Tree_Longest_Consecutive_Sequence_298();
+        TreeNode node = TreeBuilder.build(new Object[]{1, null, 3, 2, 4, null, null, null, 5});
+        System.out.println(longest.longestConsecutive(node));
+        System.out.println(longest.longestConsecutive(TreeBuilder.build(new Object[]{2, null, 3, 2, null, 1, null})));
+    }
+
+    @Test
+    public void test299() {
+        Bulls_and_Cows_299 bull = new Bulls_and_Cows_299();
+        System.out.println(bull.getHint("1807", "7810"));
+    }
+
+    @Test
+    public void test300() {
+        Longest_Increasing_Subsequence_300 longest = new Longest_Increasing_Subsequence_300();
+        System.out.println(longest.lengthOfLIS(new int[]{
+                10, 9, 2, 5, 3, 7, 101, 18
+        }));
+        System.out.println(longest.lengthOfLIS(new int[]{
+                10, 9, 2, 5, 8, 4, 101, 18
+        }));
+    }
+
+    @Test
+    public void test301() {
+        Remove_Invalid_Parentheses_301 rm = new Remove_Invalid_Parentheses_301();
+        System.out.println(rm.removeInvalidParentheses("()())()"));
+        System.out.println(rm.removeInvalidParentheses("(a)())()"));
+        System.out.println(rm.removeInvalidParentheses(")("));
+    }
+
 
 }
