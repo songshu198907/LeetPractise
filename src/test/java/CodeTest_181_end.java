@@ -436,8 +436,19 @@ public class CodeTest_181_end {
     public void test301() {
         Remove_Invalid_Parentheses_301 rm = new Remove_Invalid_Parentheses_301();
         System.out.println(rm.removeInvalidParentheses("()())()"));
-        System.out.println(rm.removeInvalidParentheses("(a)())()"));
-        System.out.println(rm.removeInvalidParentheses(")("));
+
+    }
+
+    @Test
+    public void test306() {
+        Additive_Number_306 add = new Additive_Number_306();
+        System.out.println(add.isAdditiveNumber("221474836472147483649"));
+        System.out.println(add.isAdditiveNumber("112358"));
+        System.out.println(add.isAdditiveNumber("199100199"));
+        System.out.println(add.isAdditiveNumber("0122"));
+        System.out.println(add.isAdditiveNumber("0112"));
+        System.out.println(add.isAdditiveNumber("0000"));
+        System.out.println(add.isAdditiveNumber("123"));
     }
 
 
