@@ -433,6 +433,11 @@ public class CodeTest_181_end {
     }
 
     @Test
+//    public void test307(){
+//        Range_Sum_Query_Mutable_307 range = new Range_Sum_Query_Mutable_307(new int[]{1,2,3,4,5,6,7,8,9,10});
+//        System.out.println(range.sumRange(3,7));
+//        range.update(5,11);
+//        System.out.println(range.sumRange(3,7));}
     public void test301() {
         Remove_Invalid_Parentheses_301 rm = new Remove_Invalid_Parentheses_301();
         System.out.println(rm.removeInvalidParentheses("()())()"));
@@ -451,5 +456,39 @@ public class CodeTest_181_end {
         System.out.println(add.isAdditiveNumber("123"));
     }
 
+    @Test
+    public void test310() {
+
+        Minimum_Height_Trees_310 min = new Minimum_Height_Trees_310();
+//        System.out.println( min.findMinHeightTrees(6, new int[][]{{0,3},{1,3},{2,3},{4,3},{5,4}}));
+//        System.out.println( min.findMinHeightTrees(4, new int[][]{{1,0},{1,2},{1,3}}));
+//        System.out.println( min.findMinHeightTrees(2, new int[][]{{1,0}}));
+        System.out.println(min.findMinHeightTrees(7, new int[][]{{0, 1}, {1, 2}, {1, 3}, {2, 4}, {3, 5}, {4, 6}}));
+
+
+    }
+
+    @Test
+    public void test311() {
+        Sparse_Matrix_Multiplication_311 sparse = new Sparse_Matrix_Multiplication_311();
+        int[][] abc = sparse.multiply(new int[][]{{1, 0, 0}, {-1, 0, 3}}, new int[][]{{7, 0, 0}, {0, 0, 0}, {0, 0, 1}});
+        for (int[] a : abc)
+            System.out.println(Arrays.toString(a));
+    }
+
+    @Test
+    public void test312() {
+        Burst_Balloons_312 burst = new Burst_Balloons_312();
+        System.out.println(burst.maxCoins(new int[]{3, 1, 5, 8}));
+//        System.out.println(burst.maxCoins(new int[]{2,4,1,6,8,3}));
+//        System.out.println(burst.maxCoins(new int[]{35,16,83,87,84,59,48,41}));
+    }
+
+    @Test
+    public void test313() {
+        SuperUglyNumber_313 su = new SuperUglyNumber_313();
+        System.out.println(su.nthSuperUglyNumber(100000, new int[]{2, 3, 5}));
+//        System.out.println(su.nthSuperUglyNumber(100000,new int[]{7,19,29,37,41,47,53,59,61,79,83,89,101,103,109,127,131,137,139,157,167,179,181,199,211,229,233,239,241,251}));
+    }
 
 }
