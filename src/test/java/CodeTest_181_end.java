@@ -487,8 +487,23 @@ public class CodeTest_181_end {
     @Test
     public void test313() {
         SuperUglyNumber_313 su = new SuperUglyNumber_313();
-        System.out.println(su.nthSuperUglyNumber(100000, new int[]{2, 3, 5}));
+//        System.out.println(su.nthSuperUglyNumber(100000, new int[]{2, 3, 5}));
 //        System.out.println(su.nthSuperUglyNumber(100000,new int[]{7,19,29,37,41,47,53,59,61,79,83,89,101,103,109,127,131,137,139,157,167,179,181,199,211,229,233,239,241,251}));
+    }
+
+    @Test
+    public void test315() {
+        Count_of_Smaller_Numbers_After_Self_315_2 counter = new Count_of_Smaller_Numbers_After_Self_315_2();
+        System.out.println(counter.countSmaller(new int[]{5, 4, 3, 2, 1}));
+//        System.out.println(counter.countSmaller(new int [] {5,4,4,2,1}));
+    }
+
+    @Test
+    public void test316() {
+        Remove_Duplicate_Letters_316 rm = new Remove_Duplicate_Letters_316();
+//        System.out.println(rm.removeDuplicateLetters("bcabc"));
+//        System.out.println(rm.removeDuplicateLetters("cbacdcbc"));
+        System.out.println(Remove_Duplicate_Letters_316.removeDuplicateLetters("baa"));
     }
 
 }
