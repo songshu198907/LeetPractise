@@ -1,4 +1,4 @@
-import algorithm.leet_181_end.kiki_game;
+import algorithm.leet_181_320.kiki_game;
 import org.junit.Test;
 
 /**

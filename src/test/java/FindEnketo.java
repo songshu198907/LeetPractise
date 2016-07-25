@@ -9,12 +9,13 @@ import java.util.List;
  * Created by shu on 7/17/2016.
  */
 public class FindEnketo {
+    private static final String target = "email_host";
     private static int cnt = 0;
     private static List<String> names;
 
     public static void main(String[] args) {
         names = new ArrayList<>();
-        File file = new File("D:\\formhub");
+        File file = new File("D:\\formhub\\tmp\\src");
         Long start = System.currentTimeMillis();
         findEnketo(file);
         Long end = System.currentTimeMillis();
@@ -31,7 +32,7 @@ public class FindEnketo {
             cnt++;
             try {
                 String content = FileUtils.readFileToString(file);
-                if (content.toLowerCase().contains("enketo")) {
+                if (content.toLowerCase().contains(target)) {
                     names.add(file.getAbsolutePath());
                 }
             } catch (IOException e) {
