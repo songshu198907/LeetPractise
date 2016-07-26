@@ -1,3 +1,5 @@
+import algorithm.ListNode;
+import algorithm.NodeListBuilder;
 import algorithm.leet_321_350.*;
 import org.junit.Test;
 
@@ -56,6 +58,38 @@ public class CodeTest_321_350 {
         System.out.println(cnt.countRangeSum(new int[]{0, 0}, 0, 0));
         System.out.println(cnt.countRangeSum(new int[]{2147483647, -2147483648, -1, 0}, -1, 0));
         System.out.println(cnt.countRangeSum(new int[]{-2147483647, 0, -2147483647, 2147483647}, -564, 3864));
+
+    }
+
+    @Test
+    public void test328() {
+        Odd_Even_Linked_List_328 odd = new Odd_Even_Linked_List_328();
+        ListNode head;
+        head = NodeListBuilder.BuildList(new int[]{1, 2, 3, 4, 5, 6, 7, 8});
+        odd.oddEvenList(head).print();
+        head = NodeListBuilder.BuildList(new int[]{1, 2, 3});
+        odd.oddEvenList(head).print();
+
+    }
+
+    @Test
+    public void test329() {
+        Longest_Increasing_Path_in_a_Matrix_329 longest = new Longest_Increasing_Path_in_a_Matrix_329();
+        System.out.println(longest.longestIncreasingPath(new int[][]{
+                {9, 9, 4},
+                {6, 6, 8},
+                {2, 1, 1}
+        }));
+        System.out.println(longest.longestIncreasingPath(new int[][]{
+                {3, 4, 5},
+                {3, 2, 6},
+                {2, 2, 1}
+        }));
+        System.out.println(longest.longestIncreasingPath(new int[][]{
+                {7, 8, 9},
+                {9, 7, 6},
+                {7, 2, 3}
+        }));
 
     }
 }
