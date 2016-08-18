@@ -92,4 +92,13 @@ public class CodeTest_321_350 {
         }));
 
     }
+
+    @Test
+    public void test335() {
+        Self_Crossing_335 self = new Self_Crossing_335();
+//        System.out.println(self.isSelfCrossing(new int[]{2,1,1,2}));
+//        System.out.println(self.isSelfCrossing(new int[]{1,2,3,4}));
+//        System.out.println(self.isSelfCrossing(new int[]{1,1,1,1}));
+        System.out.println(self.isSelfCrossing(new int[]{1, 1, 2, 1, 1}));
+    }
 }
