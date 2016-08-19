@@ -1,5 +1,6 @@
 import algorithm.ListNode;
 import algorithm.NodeListBuilder;
+import algorithm.TreeBuilder;
 import algorithm.leet_321_350.*;
 import org.junit.Test;
 
@@ -99,6 +100,38 @@ public class CodeTest_321_350 {
 //        System.out.println(self.isSelfCrossing(new int[]{2,1,1,2}));
 //        System.out.println(self.isSelfCrossing(new int[]{1,2,3,4}));
 //        System.out.println(self.isSelfCrossing(new int[]{1,1,1,1}));
+//        System.out.println(self.isSelfCrossing(new int[]{1,1,1,1}));
         System.out.println(self.isSelfCrossing(new int[]{1, 1, 2, 1, 1}));
+    }
+
+    @Test
+    public void test336() {
+        Palindrome_Pairs_336 pal = new Palindrome_Pairs_336();
+//        System.out.println(pal.palindromePairs(new String[]{"bat", "tab", "cat"}));
+//        System.out.println(pal.palindromePairs(new String[]{"abcd", "dcba", "lls", "s", "sssll"}));
+//        System.out.println(pal.palindromePairs(new String[]{"a",""}));
+        System.out.println(pal.palindromePairs(new String[]{"a", "b", "c", "ab", "ac", "aa"}));
+//        System.out.println(pal.palindromePairs(new String[]{"a","abc","aba",""}));
+//        System.out.println(pal.palindromePairs(new String[]{"abcd","dcba","lls","s","sssll"}));
+    }
+
+    @Test
+    public void test337() {
+        HouseRobberIII_337 house = new HouseRobberIII_337();
+        System.out.println(house.rob(TreeBuilder.build(new Object[]{
+                3, 2, 3, null, 3, 1, null
+        })));
+        System.out.println(house.rob(TreeBuilder.build(new Object[]{
+                3, 4, 5, 1, 3, null, 1
+        })));
+
+
+    }
+
+    @Test
+    public void test342() {
+        PowerofFour_342 pof = new PowerofFour_342();
+        System.out.println(pof.isPowerOfFour(16));
+        System.out.println(pof.isPowerOfFour(32));
     }
 }
