@@ -134,4 +134,16 @@ public class CodeTest_321_350 {
         System.out.println(pof.isPowerOfFour(16));
         System.out.println(pof.isPowerOfFour(32));
     }
+
+    @Test
+    public void test352() {
+        SummaryRanges2 ranges = new SummaryRanges2();
+        int[] arr = new int[]{45, 97, 53, 5};
+        for (int i : arr) {
+            ranges.addNum(i);
+            System.out.println(ranges.getIntervals());
+
+        }
+
+    }
 }
