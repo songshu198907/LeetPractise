@@ -95,6 +95,14 @@ public class CodeTest_321_350 {
     }
 
     @Test
+    public void test334() {
+
+        Increasing_Triplet_Subsequence_334 in = new Increasing_Triplet_Subsequence_334();
+//        System.out.println(in.increasingTriplet(new int[]{5,4,3,2,1}));
+        System.out.println(in.increasingTriplet(new int[]{0, 4, 2, 1, 0, -1, -3}));
+    }
+
+    @Test
     public void test335() {
         Self_Crossing_335 self = new Self_Crossing_335();
 //        System.out.println(self.isSelfCrossing(new int[]{2,1,1,2}));
@@ -134,6 +142,21 @@ public class CodeTest_321_350 {
         System.out.println(pof.isPowerOfFour(16));
         System.out.println(pof.isPowerOfFour(32));
     }
+
+    @Test
+    public void test343() {
+        Integer_Break_343 bk = new Integer_Break_343();
+        System.out.println(bk.integerBreak(2));
+        System.out.println(bk.integerBreak(10));
+    }
+
+    @Test
+    public void test345() {
+        Reverse_Vowels_of_a_String_345 reverse = new Reverse_Vowels_of_a_String_345();
+        System.out.println(reverse.reverseVowels("hello"));
+    }
+
+
 
     @Test
     public void test352() {
