@@ -13,27 +13,33 @@ public class Wiggle_Subsequence_376 {
         while (pos < nums.length && nums[pos] == nums[pos - 1]) {
             pos++;
         }
+        if (pos == nums.length) return 1;
+        start++;
         boolean bigger = nums[pos] > nums[pos - 1];
-        if ()
-            for (int i = pos; i < nums.length; i++) {
-                if (bigger) {
-                    if (nums[i] < max) {
-                        start++;
-                        min = nums[i];
-                        bigger = !bigger;
-                    } else if (nums[i] > max) {
-                        max = nums[i];
-                    }
-                } else {
-                    if (nums[i] > min) {
-                        start++;
-                        max = nums[i];
-                        bigger = !bigger;
-                    } else if (nums[i] < min) {
-                        min = nums[i];
-                    }
+        if (bigger) {
+            max = nums[pos];
+        } else {
+            min = nums[pos];
+        }
+        for (int i = pos + 1; i < nums.length; i++) {
+            if (bigger) {
+                if (nums[i] < max) {
+                    start++;
+                    min = nums[i];
+                    bigger = !bigger;
+                } else if (nums[i] > max) {
+                    max = nums[i];
+                }
+            } else {
+                if (nums[i] > min) {
+                    start++;
+                    max = nums[i];
+                    bigger = !bigger;
+                } else if (nums[i] < min) {
+                    min = nums[i];
                 }
             }
+        }
         return start;
 
     }
