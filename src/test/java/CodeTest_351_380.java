@@ -2,13 +2,11 @@ import algorithm.leet_351_365.Count_Numbers_with_Unique_Digits_357;
 import algorithm.leet_351_365.Russian_Doll_Envelopes_354;
 import algorithm.leet_351_365.Super_Pow_372;
 import algorithm.leet_351_365.Twitter;
-import algorithm.leet_370_end.Combination_Sum_IV_377;
-import algorithm.leet_370_end.Guess_Number_Higher_or_Lower_374;
-import algorithm.leet_370_end.Guess_Number_Higher_or_Lower_II_375;
-import algorithm.leet_370_end.Wiggle_Subsequence_376;
+import algorithm.leet_370_end.*;
 import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 
 /**
  * Created by shu on 2016/8/23.
@@ -86,5 +84,19 @@ public class CodeTest_351_380 {
         Combination_Sum_IV_377 comb = new Combination_Sum_IV_377();
         System.out.println(comb.combinationSum4(new int[]{1, 2, 3}, 4));
 //        System.out.println(comb.combinationSum4(new int[]{1,2,3},32));
+    }
+
+    @Test
+    public void test378() {
+        Kth_Smallest_Element_in_a_Sorted_Matrix_378 kth = new Kth_Smallest_Element_in_a_Sorted_Matrix_378();
+        System.out.println(kth.kthSmallest(new int[][]{{1, 5, 9}, {10, 11, 13}, {12, 13, 15}}, 8));
+    }
+
+    @Test
+    public void test384() {
+        Shuffle_an_Array_384 shuffle = new Shuffle_an_Array_384(new int[]{1, 2, 3});
+        System.out.println(Arrays.toString(shuffle.shuffle()));
+        System.out.println(Arrays.toString(shuffle.reset()));
+        System.out.println(Arrays.toString(shuffle.shuffle()));
     }
 }

@@ -1,49 +1,41 @@
 package algorithm.leet_76_90;
 
-import java.util.HashMap;
-
 /**
  * Created by songheng on 4/14/16.
  */
 public class Minimum_Window_Substring_76 {
-    public String minWindow(String S, String T) {
-        String res = "";
-        if (S == null || T == null || S.length() == 0 || T.length() == 0)
-            return res;
-
-        HashMap<Character, Integer> dict = new HashMap<Character, Integer>();
-        for (int i = 0; i < T.length(); i++) {
-            if (!dict.containsKey(T.charAt(i)))
-                dict.put(T.charAt(i), 1);
-            else
-                dict.put(T.charAt(i), dict.get(T.charAt(i)) + 1);
-        }
-
-        int count = 0;
-        int pre = 0;
-        int minLen = S.length() + 1;
-        for (int i = 0; i < S.length(); i++) {
-            if (dict.containsKey(S.charAt(i))) {
-                dict.put(S.charAt(i), dict.get(S.charAt(i)) - 1);
-                if (dict.get(S.charAt(i)) >= 0)
-                    count++;
-
-                while (count == T.length()) {
-                    if (dict.containsKey(S.charAt(pre))) {
-                        dict.put(S.charAt(pre), dict.get(S.charAt(pre)) + 1);
-
-                        if (dict.get(S.charAt(pre)) > 0) {
-                            if (minLen > i - pre + 1) {
-                                res = S.substring(pre, i + 1);
-                                minLen = i - pre + 1;
-                            }
-                            count--;
-                        }
-                    }
-                    pre++;
+    public String minWindow(String s, String t) {
+        char[] s_array = s.toCharArray();
+        char[] t_array = t.toCharArray();
+        int[] map = new int[256];
+        int end = 0;
+        int start = 0;
+        int min_length = Integer.MAX_VALUE;
+        for (int i = 0; i < t_array.length; i++)
+            map[t_array[i]]++;
+        int count = t_array.length;
+        int min_start = 0;
+        while (end < s_array.length) {
+            if (map[s_array[end]] > 0) {
+                count--;
+            }
+            map[s_array[end]]--;
+            while (count == 0) {
+                if ((end - start + 1) < min_length) {
+                    min_length = end - start + 1;
+                    min_start = start;
                 }
-            }//end for if(dict.containsKey(S.charAt(i)))
+                map[s_array[start]]++;
+                if (map[s_array[start]] > 0) {
+                    count++;
+                }
+                start++;
+            }
+            end++;
+
         }
-        return res;
+        if (min_start + min_length > s_array.length)
+            return "";
+        return s.substring(min_start, min_start + min_length);
     }
 }
