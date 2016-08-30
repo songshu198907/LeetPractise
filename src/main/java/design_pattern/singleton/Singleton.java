@@ -4,22 +4,16 @@ package design_pattern.singleton;
  * Created by shu on 6/21/2016.
  */
 public class Singleton {
-    private static Singleton instance = null;
 
     private Singleton() {
 
     }
 
     public static Singleton getInstance() {
-        if (instance == null) {
-            init();
-        }
-        return instance;
+        return HolderClass.instance;
     }
 
-    private static synchronized void init() {
-        instance = new Singleton();
+    private static class HolderClass {
+        private final static Singleton instance = new Singleton();
     }
-
-
 }
