@@ -1,20 +1,16 @@
 package design_pattern.decorator;
 
 /**
- * Created by shu on 6/21/2016.
+ * Created by songheng on 9/8/16.
  */
-public class Decorator implements Sourceable {
-    private Sourceable source;
+public abstract class Decorator implements Encryptor {
+    protected Encryptor encryptor;
 
-    public Decorator(Sourceable source) {
-        super();
-        this.source = source;
+    public Decorator(Encryptor encryptor) {
+        this.encryptor = encryptor;
     }
 
-    @Override
-    public void method() {
-        System.out.println("Before method");
-        source.method();
-        System.out.println("After method");
+    public void encrypt() {
+        encryptor.encrypt();
     }
 }
