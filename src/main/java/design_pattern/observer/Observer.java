@@ -1,8 +1,14 @@
 package design_pattern.observer;
 
 /**
- * Created by shu on 6/21/2016.
+ * Created by songheng on 9/16/16.
  */
 public interface Observer {
-    void update();
+    String getName();
+
+    void setName(String name);
+
+    void help();
+
+    void beAttacked(AllyControlCenter acc);
 }
