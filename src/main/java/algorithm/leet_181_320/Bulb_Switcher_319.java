@@ -5,9 +5,9 @@ package algorithm.leet_181_320;
  */
 public class Bulb_Switcher_319 {
     public int bulbSwitch(int n) {
-        int res = 0;
-        while ((res * res) <= n)
-            res++;
-        return --res;
+        int total = 1;
+        while (total * total <= n) total++;
+
+        return --total;
     }
 }

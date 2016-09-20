@@ -540,4 +540,11 @@ public class CodeTest_181_320 {
         gen.generateAbbreviations("approximations").stream().forEach(ele -> System.out.print("\"" + ele + "\","));
     }
 
+    @Test
+    public void test319() {
+        Bulb_Switcher_319 bulb = new Bulb_Switcher_319();
+        System.out.println(bulb.bulbSwitch(6));
+        System.out.println(bulb.bulbSwitch(99999));
+    }
+
 }
