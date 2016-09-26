@@ -83,20 +83,22 @@ public class CodeTest_351_380 {
     public void test377() {
         Combination_Sum_IV_377 comb = new Combination_Sum_IV_377();
         System.out.println(comb.combinationSum4(new int[]{1, 2, 3}, 4));
-//        System.out.println(comb.combinationSum4(new int[]{1,2,3},32));
+        System.out.println(comb.combinationSum4(new int[]{1, 2, 3}, 32));
     }
 
     @Test
     public void test378() {
         Kth_Smallest_Element_in_a_Sorted_Matrix_378 kth = new Kth_Smallest_Element_in_a_Sorted_Matrix_378();
-        System.out.println(kth.kthSmallest(new int[][]{{1, 5, 9}, {10, 11, 13}, {12, 13, 15}}, 8));
+//        System.out.println(kth.kthSmallest(new int[][]{{1,3,5},{6,7,12},{11,14,14}},6));
+        System.out.println(kth.kthSmallest(new int[][]{{-5}}, 1));
     }
+
 
     @Test
     public void test384() {
-        Shuffle_an_Array_384 shuffle = new Shuffle_an_Array_384(new int[]{1, 2, 3});
+        Shuffle_an_Array_384 shuffle = new Shuffle_an_Array_384(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12});
         System.out.println(Arrays.toString(shuffle.shuffle()));
-        System.out.println(Arrays.toString(shuffle.reset()));
-        System.out.println(Arrays.toString(shuffle.shuffle()));
+//        System.out.println(Arrays.toString(shuffle.reset()));
+//        System.out.println(Arrays.toString(shuffle.shuffle()));
     }
 }

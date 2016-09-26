@@ -14,8 +14,49 @@ public class LocalTest {
 //        System.out.println(len);
 //        int cnt = 0;
 //
-        System.out.println(new LocalTest().maxProduct(new String[]{"a", "ab", "abc", "d", "cd", "bcd", "abcd"}));
 
+//        System.out.println(new LocalTest().maxProduct(new String[]{"a", "ab", "abc", "d", "cd", "bcd", "abcd"}));
+        int[] arr = new int[]{1, 3, 2, 5, 4, 6, 8};
+        System.out.println(getKth(arr, 4));
+        System.out.println(getKth(arr, 4));
+        System.out.println(getKth(arr, 4));
+        System.out.println(getKth(arr, 2));
+        System.out.println(getKth(arr, 3));
+        System.out.println(getKth(arr, 6));
+        System.out.println(getKth(arr, 7));
+
+
+    }
+
+    public static int getKth(int[] arr, int key) {
+        int start = 0, end = arr.length - 1, index = key - 1;
+        while (start < end) {
+            int povit = partion(arr, start, end);
+            if (povit < index) start = povit + 1;
+            else if (povit > index) end = povit - 1;
+            else return arr[povit];
+        }
+        return arr[start];
+
+    }
+
+    public static int partion(int[] arr, int left, int right) {
+        int povit = left;
+        while (left <= right) {
+            while (left <= right && arr[left] <= arr[povit]) left++;
+            while (left <= right && arr[right] >= arr[povit]) right--;
+            if (left < right) {
+                swap(arr, left, right);
+            }
+        }
+        swap(arr, povit, right);
+        return right;
+    }
+
+    public static void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
     }
 
     public int maxProduct(String[] words) {

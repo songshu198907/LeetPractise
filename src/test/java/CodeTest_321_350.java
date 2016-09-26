@@ -34,11 +34,16 @@ public class CodeTest_321_350 {
     @Test
     public void test324() {
         Wiggle_Sort_II_324 wiggle = new Wiggle_Sort_II_324();
-        int[] arr = new int[]{1, 5, 1, 1, 6, 4};
-        wiggle.wiggleSort(arr);
-        System.out.println(Arrays.toString(arr));
-        arr = new int[]{
-                1, 2, 2, 1, 2, 1, 1, 1, 1, 2, 2, 2
+//        int[] arr = new int[]{1, 5, 1, 1, 6, 4};
+//        wiggle.wiggleSort(arr);
+//        System.out.println(Arrays.toString(arr));
+//        arr = new int[]{
+//                1, 2, 2, 1, 2, 1, 1, 1, 1, 2, 2, 2
+//        };
+//        wiggle.wiggleSort(arr);
+//        System.out.println(Arrays.toString(arr));
+        int[] arr = new int[]{
+                1, 3, 2, 2, 3, 1
         };
         wiggle.wiggleSort(arr);
         System.out.println(Arrays.toString(arr));
@@ -169,4 +174,6 @@ public class CodeTest_321_350 {
         }
 
     }
+
+
 }
