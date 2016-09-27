@@ -1,7 +1,4 @@
-import algorithm.leet_351_365.Count_Numbers_with_Unique_Digits_357;
-import algorithm.leet_351_365.Russian_Doll_Envelopes_354;
-import algorithm.leet_351_365.Super_Pow_372;
-import algorithm.leet_351_365.Twitter;
+import algorithm.leet_351_365.*;
 import algorithm.leet_370_end.*;
 import org.junit.Test;
 
@@ -100,5 +97,16 @@ public class CodeTest_351_380 {
         System.out.println(Arrays.toString(shuffle.shuffle()));
 //        System.out.println(Arrays.toString(shuffle.reset()));
 //        System.out.println(Arrays.toString(shuffle.shuffle()));
+    }
+
+    @Test
+    public void test367() {
+        Valid_Perfect_Square_367 valid = new Valid_Perfect_Square_367();
+        System.out.println(valid.isPerfectSquare(15));
+        System.out.println(valid.isPerfectSquare(16));
+        System.out.println(valid.isPerfectSquare(14));
+        System.out.println(valid.isPerfectSquare(9));
+        System.out.println(valid.isPerfectSquare(2147483647));
+
     }
 }

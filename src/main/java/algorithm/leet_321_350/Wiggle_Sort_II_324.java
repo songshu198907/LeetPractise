@@ -6,7 +6,6 @@ package algorithm.leet_321_350;
 public class Wiggle_Sort_II_324 {
     private int length;
     public void wiggleSort(int[] nums) {
-        // quick select O(n) + index mapping O(1)
         length = nums.length;
         int middle = quickselect(nums, 0, nums.length - 1, (nums.length - 1) / 2);
         int curr = 0;
@@ -64,6 +63,8 @@ public class Wiggle_Sort_II_324 {
                 left++;
             }
             nums[right] = nums[left];
+
+
         }
         nums[left] = value;
         return left;

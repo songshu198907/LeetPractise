@@ -40,4 +40,12 @@ public class NestedInteger {
             list.add(ni);
         }
     }
+
+    @Override
+    public String toString() {
+        return "NestedInteger{" +
+                ((list != null) ? "list=" + list + "," : "") +
+                " val=" + val +
+                '}';
+    }
 }
