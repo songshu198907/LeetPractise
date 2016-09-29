@@ -5,26 +5,11 @@ import java.io.IOException;
  */
 public class LocalTest {
     public static void main(String[] args) throws IOException {
-
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("输入:");
-//
-//        int len = scanner.nextInt();
-//        int[] arr = new int[len];
-//        System.out.println(len);
-//        int cnt = 0;
-//
-
-//        System.out.println(new LocalTest().maxProduct(new String[]{"a", "ab", "abc", "d", "cd", "bcd", "abcd"}));
-        int[] arr = new int[]{1, 3, 2, 5, 4, 6, 8};
-        System.out.println(getKth(arr, 4));
-        System.out.println(getKth(arr, 4));
-        System.out.println(getKth(arr, 4));
-        System.out.println(getKth(arr, 2));
-        System.out.println(getKth(arr, 3));
-        System.out.println(getKth(arr, 6));
-        System.out.println(getKth(arr, 7));
-
+        int[] a = {197, 130, 1};
+        for (int i : a) {
+            System.out.println(i & 244);
+        }
+        System.out.println(0xC0);
 
     }
 
