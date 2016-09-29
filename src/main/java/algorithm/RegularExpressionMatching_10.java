@@ -1,11 +1,10 @@
 package algorithm;
 
-import java.util.Stack;
-
 /**
  * Created by songheng on 3/17/16.
  */
-public class RegularExpressionMatching_10 {public boolean isMatch(String s, String p) {
+public class RegularExpressionMatching_10 {
+    public boolean isMatch(String s, String p) {
     boolean[] match = new boolean[s.length()+1];
     for(int i=0; i<match.length; i++){
         match[i] = false;
@@ -26,4 +25,24 @@ public class RegularExpressionMatching_10 {public boolean isMatch(String s, Stri
     }
     return match[0];
 }
+
+    public boolean isMatch2(String s, String p) {
+        boolean[] match = new boolean[s.length() + 1];
+        match[s.length()] = true;
+
+        for (int i = p.length() - 1; i >= 0; i--) {
+            if (p.charAt(i) == '*') {
+                for (int j = s.length() - 1; j >= 0; j--) {
+                    match[j] = match[j] || (match[j + 1] && (p.charAt(i - 1) == '.' || p.charAt(i - 1) == s.charAt(j - 1)));
+                }
+                i--;
+            } else {
+                for (int j = s.length(); j >= 0; j--) {
+                    match[j] = match[j] || (match[j + 1] && p.charAt(i) == s.charAt(j));
+                }
+
+            }
+        }
+        return match[0];
+    }
 }

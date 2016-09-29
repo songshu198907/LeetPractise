@@ -5,49 +5,55 @@ package algorithm.leet_370_end;
  */
 public class LongestSubstring_395 {
     public int longestSubstring(String s, int k) {
-        int[] arr = new int[26];
-        int single = 0;
-        char[] chs = s.toCharArray();
-        for (int i = 0; i < s.length(); i++) {
-            arr[chs[i] - 'a']++;
-            if (arr[chs[i] - 'a'] == 1) single++;
-            if (arr[chs[i] - 'a'] == k) single--;
-        }
-        return subString(chs, 0, chs.length - 1, arr, single, k);
-
+        char[] str = s.toCharArray();
+        return help2(str, 0, s.length(), k);
     }
 
-    private int subString(char[] chars, int start, int end, int[] arr, int single, int k) {
-
-        int res;
-        int iS = start, ip = end;
-        while (start <= end && arr[chars[start] - 'a'] < k) {
-            if (--arr[chars[start] - 'a'] == 0) single--;
-            start++;
-        }
-        while (start <= end && arr[chars[end] - 'a'] < k) {
-            if (--arr[chars[end] - 'a'] == 0) single--;
-            end--;
-        }
-        if (single == 0) {
-            return end - start + 1;
-        }
+    private int help2(char[] str, int start, int end, int k) {
         if (start > end) return 0;
-        int tmp = single;
-        if (single == 0) return end - start + 1;
-        arr[chars[start] - 'a']--;
-        if (arr[chars[start] - 'a'] < k) single++;
-        res = Math.max(0, subString(chars, start + 1, end, arr, single, k));
-        arr[chars[start] - 'a']++;
-        arr[chars[end] - 'a']--;
-        if (arr[chars[end] - 'a'] < k) tmp--;
-        res = Math.max(res, subString(chars, start, end - 1, arr, tmp, k));
-        for (int i = iS; i < start; i++) {
-            arr[chars[i] - 'a']++;
+        if (end - start < k) return 0;
+        int[] alphas = new int[26];
+        for (int i = start; i < end; i++) {
+            int idx = str[i] - 'a';
+            alphas[idx]++;
         }
-        for (int i = end; i < ip; i++) {
-            arr[chars[i] - 'a']++;
+        for (int i = 0; i < 26; i++) {
+            if (alphas[i] == 0) continue;
+            if (alphas[i] < k) {
+                for (int j = start; j < end; j++) {
+                    if (str[j] == i + 'a') {
+                        int left = help2(str, start, j, k);
+                        int right = help2(str, j + 1, end, k);
+                        return Math.max(left, right);
+                    }
+                }
+            }
         }
-        return res;
+        return end - start;
     }
+
+    private int helper(char[] str, int start, int end, int k) {
+        if (end < start) return 0;
+        if (end - start < k) return 0;//substring length shorter than k.
+        int[] count = new int[26];
+        for (int i = start; i < end; i++) {
+            int idx = str[i] - 'a';
+            count[idx]++;
+        }
+        for (int i = 0; i < 26; i++) {
+            if (count[i] == 0) continue;//i+'a' does not exist in the string, skip it.
+            if (count[i] < k) {
+                for (int j = start; j < end; j++) {
+                    if (str[j] == i + 'a') {
+                        int left = helper(str, start, j, k);
+                        int right = helper(str, j + 1, end, k);
+                        return Math.max(left, right);
+                    }
+                }
+            }
+        }
+        return end - start;
+    }
+
+
 }

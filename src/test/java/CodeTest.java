@@ -1,10 +1,20 @@
 import algorithm.*;
+import algorithm.leet_1_30.Median_of_Two_Sorted_Arrays_4;
 import org.junit.Test;
 
 /**
  * Created by songheng on 3/15/16.
  */
 public class CodeTest {
+
+    @Test
+    public void test4() {
+
+        Median_of_Two_Sorted_Arrays_4 median = new Median_of_Two_Sorted_Arrays_4();
+        System.out.println(median.findMedianSortedArrays(new int[]{1, 3
+                }, new int[]{2}
+        ));
+    }
     @Test
     public void testReverse(){
         ReverseInteger_7 rev = new ReverseInteger_7();

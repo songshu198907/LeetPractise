@@ -74,4 +74,14 @@ public class CodeTest_381_410 {
 //        System.out.println(longest.longestSubstring("aaabbbcdefcdefgggggggggggggggcde",
 //                3));
     }
+
+    @Test
+    public void test397() {
+        IntegerReplacement_397 replacement = new IntegerReplacement_397();
+        System.out.println(replacement.integerReplacement(8));
+        System.out.println(replacement.integerReplacement(7));
+        System.out.println(replacement.integerReplacement(1000));
+        System.out.println(replacement.integerReplacement(2147483647));
+
+    }
 }
