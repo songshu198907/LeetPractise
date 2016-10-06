@@ -7,6 +7,8 @@ public class RegularExpressionMatching_10 {
     public boolean isMatch(String s, String p) {
     boolean[] match = new boolean[s.length()+1];
     for(int i=0; i<match.length; i++){
+
+
         match[i] = false;
     }
     match[s.length()] = true;

@@ -14,6 +14,8 @@ public class CodeTest {
         System.out.println(median.findMedianSortedArrays(new int[]{1, 3
                 }, new int[]{2}
         ));
+//        System.out.println(median.findMedianSortedArrays(new int[] { 3,5,6,8,9} , new int[] { 1,2,4,5,6,7}));
+        System.out.println(median.findMedianSortedArrays(new int[]{1, 2, 3}, new int[]{1, 2}));
     }
     @Test
     public void testReverse(){
