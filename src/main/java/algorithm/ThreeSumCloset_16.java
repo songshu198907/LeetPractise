@@ -1,9 +1,6 @@
 package algorithm;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by songheng on 3/17/16.
@@ -111,7 +108,6 @@ public class ThreeSumCloset_16 {
             if (sum < target ) down = true;
             while(low < high){
                  sum = nums[i] + nums[low] + nums[high];
-                System.out.println("sum is " + sum + " === > "+nums[i]+":"+nums[low]+":"+nums[high]);
                 if( sum  == target ){
                     result = target;
                     i  = nums.length+1;
