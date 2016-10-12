@@ -1,4 +1,5 @@
 import algorithm.NodeListBuilder;
+import algorithm.TreeBuilder;
 import algorithm.TreeNode;
 import algorithm.leet_91_105.*;
 import org.junit.Test;
@@ -50,7 +51,9 @@ public class CodeTest_91_105 {
         TreeNode root = new TreeNode(0);
         root.left = new TreeNode(-1);
         ValidateBinarySearchTree_98 valid = new ValidateBinarySearchTree_98();
-        System.out.println(valid.isValidBST(root));
+//        System.out.println(valid.isValidBST2(root));
+        root = TreeBuilder.build(new Object[]{Integer.MIN_VALUE});
+        System.out.println(valid.isValidBST2(root));
     }
 
     @Test
