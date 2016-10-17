@@ -1,11 +1,31 @@
 import algorithm.*;
+import algorithm.leet_1_30.AddTwoNumbers_2;
+import algorithm.leet_1_30.LongestSubstring_3;
 import algorithm.leet_1_30.Median_of_Two_Sorted_Arrays_4;
+import algorithm.leet_1_30.ZigZagConversion_6;
+import algorithm.second_round.leet_1_30.LongestCommonPrefix_14;
 import org.junit.Test;
 
 /**
  * Created by songheng on 3/15/16.
  */
 public class CodeTest {
+
+    @Test
+    public void test2() {
+        AddTwoNumbers_2 add = new AddTwoNumbers_2();
+//        System.out.println(add.addTwoNumbers(NodeListBuilder.BuildList(new int[]{2,3}),NodeListBuilder.BuildList(new int[]{5,6,4})));
+//        System.out.println(add.addTwoNumbers(NodeListBuilder.BuildList(new int[]{2,4,3}),NodeListBuilder.BuildList(new int[]{5,6,4})));
+//        System.out.println(add.addTwoNumbers(NodeListBuilder.BuildList(new int[]{0}),NodeListBuilder.BuildList(new int[]{0})));
+        System.out.println(add.addTwoNumbers(NodeListBuilder.BuildList(new int[]{9}), NodeListBuilder.BuildList(new int[]{1, 9, 9, 9, 9, 9, 9, 9, 9, 9})));
+    }
+
+    @Test
+    public void test3() {
+        LongestSubstring_3 longest = new LongestSubstring_3();
+        System.out.println(longest.lengthOfLongestSubstring("abcabcbb"));
+        System.out.println(longest.lengthOfLongestSubstring("bbbbb"));
+    }
 
     @Test
     public void test4() {
@@ -16,6 +36,20 @@ public class CodeTest {
         ));
 //        System.out.println(median.findMedianSortedArrays(new int[] { 3,5,6,8,9} , new int[] { 1,2,4,5,6,7}));
         System.out.println(median.findMedianSortedArrays(new int[]{1, 2, 3}, new int[]{1, 2}));
+    }
+
+    @Test
+    public void test6() {
+
+        ZigZagConversion_6 zigZag = new ZigZagConversion_6();
+//        System.out.println(zigZag.convert("PAYPALISHIRING", 3));
+        System.out.println(zigZag.convert("A", 1));
+    }
+
+    @Test
+    public void test7() {
+        algorithm.leet_1_30.ReverseInteger_7 reverse = new algorithm.leet_1_30.ReverseInteger_7();
+        System.out.println(reverse.reverse(1));
     }
     @Test
     public void testReverse(){

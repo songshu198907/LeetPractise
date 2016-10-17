@@ -84,4 +84,13 @@ public class CodeTest_381_410 {
         System.out.println(replacement.integerReplacement(2147483647));
 
     }
+
+    @Test
+    public void test402() {
+        Remove_K_Digits_402 remove = new Remove_K_Digits_402();
+        System.out.println(remove.removeKdigits("1432219", 3));
+        System.out.println(remove.removeKdigits("10200", 1));
+        System.out.println(remove.removeKdigits("10", 2));
+
+    }
 }
