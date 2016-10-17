@@ -36,7 +36,32 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         return findMin(rootTree).data;
     }
 
-    private BinaryNode<T> findMin(BinaryNode<T> node) {
+    public T findMax() {
+        if (isEmpty()) return null;
+        return findMax(rootTree).data;
+
+    }
+
+    public BinaryNode<T> findMax(BinaryNode<T> node) {
+        BinaryNode<T> tmp = node;
+        while (tmp.right != null)
+            tmp = tmp.right;
+        return tmp;
+    }
+
+    public void insert(T t) {
+        rootTree = insert(t, rootTree);
+    }
+
+    public BinaryNode<T> insert(T t, BinaryNode<T> node) {
+        if (node == null) return new BinaryNode<T>(t, null, null);
+        int comp = t.compareTo(node.data);
+        if (comp > 0) node = insert(t, node.right);
+        else if (comp < 0) node = insert(t, node.left);
+        return node;
+    }
+
+    public BinaryNode<T> findMin(BinaryNode<T> node) {
         BinaryNode min = node;
         while (min.left != null) {
             min = min.left;
@@ -44,6 +69,23 @@ public class BinarySearchTree<T extends Comparable<? super T>> {
         return min;
     }
 
+    public T remove(T t) {
+        return remove(t, rootTree) == null ? null : remove(t, rootTree).data;
+    }
+
+    private BinaryNode<T> remove(T t, BinaryNode<T> node) {
+        if (node == null) return node;
+        int comp = t.compareTo(node.data);
+        if (comp > 0) node.right = remove(t, node.right);
+        else if (comp < 0) node.left = remove(t, node.left);
+        else if (node.left != null && node.right != null) {
+            node.data = findMax(node.right).data;
+            node.right = remove(node.data, node.right);
+        } else {
+            node = (node.left != null) ? node.left : node.right;
+        }
+        return node;
+    }
     static class BinaryNode<T> {
         T data;
         BinaryNode<T> left;

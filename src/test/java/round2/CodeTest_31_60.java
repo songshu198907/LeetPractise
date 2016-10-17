@@ -1,6 +1,5 @@
 package round2;
 
-import algorithm.second_round.leet_31_60.LongestValidParentheses_32;
 import algorithm.second_round.leet_31_60.NextPermutation_31;
 import org.junit.Test;
 
@@ -41,7 +40,10 @@ public class CodeTest_31_60 {
 
     @Test
     public void test32() {
-        LongestValidParentheses_32 longest = new LongestValidParentheses_32();
-        System.out.println(longest.longestValidParentheses(")()())"));
+//        LongestValidParentheses_32 longest = new LongestValidParentheses_32();
+//        System.out.println(longest.longestValidParentheses(")()())"));
+        int a = 8;
+        System.out.println((a & (-a)));
+        System.out.println((a & ((a - 1) ^ a)));
     }
 }
